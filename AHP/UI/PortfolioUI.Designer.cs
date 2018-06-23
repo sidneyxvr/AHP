@@ -34,12 +34,12 @@
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.critérioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.gridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridDataCriacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
+            this.gridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridDataCriacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +75,6 @@
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.aToolStripMenuItem.Text = "Atividade";
-            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // critérioToolStripMenuItem
             // 
@@ -97,30 +96,13 @@
             this.grid.Size = new System.Drawing.Size(369, 150);
             this.grid.TabIndex = 2;
             // 
-            // gridID
-            // 
-            this.gridID.HeaderText = "ID";
-            this.gridID.Name = "gridID";
-            this.gridID.ReadOnly = true;
-            // 
-            // gridDescricao
-            // 
-            this.gridDescricao.HeaderText = "Descrição";
-            this.gridDescricao.Name = "gridDescricao";
-            // 
-            // gridDataCriacao
-            // 
-            this.gridDataCriacao.HeaderText = "Data de Criação";
-            this.gridDataCriacao.Name = "gridDataCriacao";
-            this.gridDataCriacao.ReadOnly = true;
-            // 
             // btnAdicionar
             // 
             this.btnAdicionar.Location = new System.Drawing.Point(289, 409);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 3;
-            this.btnAdicionar.Text = "button1";
+            this.btnAdicionar.Text = "Adicionar Portifolio";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
@@ -130,8 +112,9 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 4;
-            this.btnExcluir.Text = "button2";
+            this.btnExcluir.Text = "Remover Portfolio";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnRelatorio
             // 
@@ -141,6 +124,26 @@
             this.btnRelatorio.TabIndex = 5;
             this.btnRelatorio.Text = "button3";
             this.btnRelatorio.UseVisualStyleBackColor = true;
+            // 
+            // gridID
+            // 
+            this.gridID.HeaderText = "ID";
+            this.gridID.Name = "gridID";
+            this.gridID.ReadOnly = true;
+            this.gridID.Visible = false;
+            // 
+            // gridDescricao
+            // 
+            this.gridDescricao.HeaderText = "Descrição";
+            this.gridDescricao.Name = "gridDescricao";
+            this.gridDescricao.Visible = false;
+            // 
+            // gridDataCriacao
+            // 
+            this.gridDataCriacao.HeaderText = "Data de Criação";
+            this.gridDataCriacao.Name = "gridDataCriacao";
+            this.gridDataCriacao.ReadOnly = true;
+            this.gridDataCriacao.Visible = false;
             // 
             // PortfolioUI
             // 
@@ -173,11 +176,11 @@
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem critérioToolStripMenuItem;
         private System.Windows.Forms.DataGridView grid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridDataCriacao;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridDescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridDataCriacao;
     }
 }

@@ -93,6 +93,12 @@
     <Compile Include="UI\PortfolioUI.Designer.cs">
       <DependentUpon>PortfolioUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RemoverPortfolioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RemoverPortfolioUI.Designer.cs">
+      <DependentUpon>RemoverPortfolioUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PortfolioUI.resx">
       <DependentUpon>PortfolioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RemoverPortfolioUI.resx">
+      <DependentUpon>RemoverPortfolioUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

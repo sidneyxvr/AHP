@@ -10,7 +10,7 @@ namespace AHP.Dados
     class BancoDados
     {
         // Connection's configuration:
-        private static string connectionString = @"Server=localhost;Database=Portfolio;Uid=root;Pwd=admin123";
+        private static string connectionString = @"Server=localhost;Database=Portfolio;Uid=root;Pwd=admin123;SSLMode=none";
         private static MySqlConnection connection;
 
         private BancoDados() { }

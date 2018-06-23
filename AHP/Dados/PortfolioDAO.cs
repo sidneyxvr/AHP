@@ -22,7 +22,20 @@ namespace AHP.Dados
                 db.Close();
             }
         }
-            
+        
+        public void Remover(string id)
+        {
+            using (var db = BancoDados.getConnection)
+            {
+                string query = "delete from portfolio where id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, db);
+                cmd.Parameters.AddWithValue("id", id);
+                db.Open();
+                cmd.ExecuteNonQuery();
+                db.Close();
+            }
+        }
+
         public List<Portfolio> Listar()
         {
             List<Portfolio> list = new List<Portfolio>();
