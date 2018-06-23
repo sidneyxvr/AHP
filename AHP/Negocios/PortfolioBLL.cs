@@ -23,6 +23,13 @@ namespace AHP.Negocios
 
         }
 
+        public void Remover(string id)
+        {
+
+            PortfolioDAO dao = new PortfolioDAO();
+            dao.Remover(id);
+        }
+
         public List<Portfolio> Listar()
         {
             PortfolioDAO dao = new PortfolioDAO();
