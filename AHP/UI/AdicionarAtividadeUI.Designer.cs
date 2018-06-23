@@ -1,6 +1,6 @@
 ﻿namespace AHP.UI
 {
-    partial class AdicionarPortfolioUI
+    partial class AdicionarAtividadeUI
     {
         /// <summary>
         /// Required designer variable.
@@ -34,35 +34,34 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(50, 50);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescricao.Location = new System.Drawing.Point(45, 44);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(250, 22);
-            this.txtDescricao.TabIndex = 0;
+            this.txtDescricao.TabIndex = 2;
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(200, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Location = new System.Drawing.Point(195, 84);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
-            this.btnAdicionar.TabIndex = 1;
+            this.btnAdicionar.TabIndex = 3;
             this.btnAdicionar.Text = "Salvar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // AdicionarPortfolioUI
+            // AdicionarAtividadeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 173);
+            this.ClientSize = new System.Drawing.Size(348, 181);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.txtDescricao);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AdicionarPortfolioUI";
-            this.Text = "AdicionarPortfolio";
+            this.Name = "AdicionarAtividadeUI";
+            this.Text = "AdicionarAtividadeUI";
             this.ResumeLayout(false);
             this.PerformLayout();
 

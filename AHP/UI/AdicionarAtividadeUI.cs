@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace AHP.UI
 {
-    public partial class AdicionarPortfolioUI : Form
+    public partial class AdicionarAtividadeUI : Form
     {
-        PortfolioUI form;
-        public AdicionarPortfolioUI(PortfolioUI form)
+        AtividadeUI form;
+        public AdicionarAtividadeUI(AtividadeUI form)
         {
             InitializeComponent();
             this.form = form;
@@ -23,8 +23,8 @@ namespace AHP.UI
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            PortfolioBLL bll = new PortfolioBLL();
-            bll.Adicionar(new Portfolio()
+            AtividadeBLL bll = new AtividadeBLL();
+            bll.Adicionar(new Atividade()
             {
                 Descricao = txtDescricao.Text
             });

@@ -37,70 +37,73 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
-            this.gridID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridDataCriacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRelacionar = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 28);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(639, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuStrip2
             // 
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.portfólioToolStripMenuItem,
             this.aToolStripMenuItem,
             this.critérioToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(639, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // portfólioToolStripMenuItem
             // 
             this.portfólioToolStripMenuItem.Name = "portfólioToolStripMenuItem";
-            this.portfólioToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.portfólioToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.portfólioToolStripMenuItem.Text = "Portfólio";
             // 
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.aToolStripMenuItem.Text = "Atividade";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // critérioToolStripMenuItem
             // 
             this.critérioToolStripMenuItem.Name = "critérioToolStripMenuItem";
-            this.critérioToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.critérioToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.critérioToolStripMenuItem.Text = "Critério";
+            this.critérioToolStripMenuItem.Click += new System.EventHandler(this.critérioToolStripMenuItem_Click);
             // 
             // grid
             // 
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gridID,
-            this.gridDescricao,
-            this.gridDataCriacao});
-            this.grid.Location = new System.Drawing.Point(12, 38);
+            this.grid.Location = new System.Drawing.Point(16, 47);
+            this.grid.Margin = new System.Windows.Forms.Padding(4);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(369, 150);
+            this.grid.Size = new System.Drawing.Size(492, 185);
             this.grid.TabIndex = 2;
+            this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(289, 409);
+            this.btnAdicionar.Location = new System.Drawing.Point(52, 271);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 3;
             this.btnAdicionar.Text = "Adicionar Portifolio";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -108,9 +111,10 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(396, 409);
+            this.btnExcluir.Location = new System.Drawing.Point(195, 271);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(100, 28);
             this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Remover Portfolio";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -118,38 +122,30 @@
             // 
             // btnRelatorio
             // 
-            this.btnRelatorio.Location = new System.Drawing.Point(506, 409);
+            this.btnRelatorio.Location = new System.Drawing.Point(332, 271);
+            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(75, 23);
+            this.btnRelatorio.Size = new System.Drawing.Size(100, 28);
             this.btnRelatorio.TabIndex = 5;
             this.btnRelatorio.Text = "button3";
             this.btnRelatorio.UseVisualStyleBackColor = true;
             // 
-            // gridID
+            // btnRelacionar
             // 
-            this.gridID.HeaderText = "ID";
-            this.gridID.Name = "gridID";
-            this.gridID.ReadOnly = true;
-            this.gridID.Visible = false;
-            // 
-            // gridDescricao
-            // 
-            this.gridDescricao.HeaderText = "Descrição";
-            this.gridDescricao.Name = "gridDescricao";
-            this.gridDescricao.Visible = false;
-            // 
-            // gridDataCriacao
-            // 
-            this.gridDataCriacao.HeaderText = "Data de Criação";
-            this.gridDataCriacao.Name = "gridDataCriacao";
-            this.gridDataCriacao.ReadOnly = true;
-            this.gridDataCriacao.Visible = false;
+            this.btnRelacionar.Location = new System.Drawing.Point(450, 274);
+            this.btnRelacionar.Name = "btnRelacionar";
+            this.btnRelacionar.Size = new System.Drawing.Size(75, 23);
+            this.btnRelacionar.TabIndex = 6;
+            this.btnRelacionar.Text = "button1";
+            this.btnRelacionar.UseVisualStyleBackColor = true;
+            this.btnRelacionar.Click += new System.EventHandler(this.btnRelacionar_Click);
             // 
             // PortfolioUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(639, 383);
+            this.Controls.Add(this.btnRelacionar);
             this.Controls.Add(this.btnRelatorio);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAdicionar);
@@ -157,6 +153,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PortfolioUI";
             this.Text = "Portfolio";
             this.Load += new System.EventHandler(this.PortfolioUI_Load);
@@ -179,8 +176,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnRelatorio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridDataCriacao;
+        private System.Windows.Forms.Button btnRelacionar;
     }
 }

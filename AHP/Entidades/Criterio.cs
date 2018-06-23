@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AHP.Entidades
 {
-    class Portfolio
+    class Criterio
     {
         public int ID { get; set; }
         public string Descricao { get; set; }
-        public DateTime DataCriacao { get; set; }
     }
 }

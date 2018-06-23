@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace AHP.Negocios
 {
-    class PortfolioBLL
+    class AtividadeBLL
     {
-        private PortfolioDAO dao;
+        private AtividadeDAO dao;
 
-        public PortfolioBLL()
+        public AtividadeBLL()
         {
-            dao = new PortfolioDAO();
+            dao = new AtividadeDAO();
         }
 
-        public void Adicionar(Portfolio portfolio)
+        public void Adicionar(Atividade atividade)
         {
-            dao.Adicionar(portfolio);
+            dao.Adicionar(atividade);
         }
 
         public void Excluir(int id)
@@ -28,14 +28,14 @@ namespace AHP.Negocios
             dao.Excluir(id);
         }
 
-        public List<Portfolio> Listar()
+        public List<Atividade> Listar()
         {
             return dao.Listar();
         }
 
-        public void Alterar(Portfolio portfolio)
+        public void Alterar(Atividade atividade)
         {
-            dao.Alterar(portfolio);
+            dao.Alterar(atividade);
         }
     }
 }

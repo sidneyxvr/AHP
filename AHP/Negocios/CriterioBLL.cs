@@ -4,23 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AHP.Negocios
 {
-    class PortfolioBLL
+    class CriterioBLL
     {
-        private PortfolioDAO dao;
+        private CriterioDAO dao;
 
-        public PortfolioBLL()
+        public CriterioBLL()
         {
-            dao = new PortfolioDAO();
+            dao = new CriterioDAO();
         }
 
-        public void Adicionar(Portfolio portfolio)
+        public void Adicionar(Criterio criterio)
         {
-            dao.Adicionar(portfolio);
+            dao.Adicionar(criterio);
         }
 
         public void Excluir(int id)
@@ -28,14 +27,14 @@ namespace AHP.Negocios
             dao.Excluir(id);
         }
 
-        public List<Portfolio> Listar()
+        public List<Criterio> Listar()
         {
             return dao.Listar();
         }
 
-        public void Alterar(Portfolio portfolio)
+        public void Alterar(Criterio criterio)
         {
-            dao.Alterar(portfolio);
+            dao.Alterar(criterio);
         }
     }
 }

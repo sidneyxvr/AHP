@@ -1,6 +1,6 @@
 ﻿namespace AHP.UI
 {
-    partial class AdicionarPortfolioUI
+    partial class AdicionarCriterioUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,41 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(50, 50);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(250, 22);
-            this.txtDescricao.TabIndex = 0;
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(200, 90);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Location = new System.Drawing.Point(182, 85);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
-            this.btnAdicionar.TabIndex = 1;
+            this.btnAdicionar.TabIndex = 5;
             this.btnAdicionar.Text = "Salvar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
-            // AdicionarPortfolioUI
+            // txtDescricao
+            // 
+            this.txtDescricao.Location = new System.Drawing.Point(32, 45);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(250, 22);
+            this.txtDescricao.TabIndex = 4;
+            // 
+            // AdicionarCriterioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 173);
+            this.ClientSize = new System.Drawing.Size(336, 170);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.txtDescricao);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AdicionarPortfolioUI";
-            this.Text = "AdicionarPortfolio";
+            this.Name = "AdicionarCriterioUI";
+            this.Text = "AdicionarCriterioUI";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.TextBox txtDescricao;
     }
 }

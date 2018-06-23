@@ -1,4 +1,5 @@
-﻿using AHP.Negocios;
+﻿using AHP.Entidades;
+using AHP.Negocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,43 +14,75 @@ namespace AHP.UI
 {
     public partial class PortfolioUI : Form
     {
+        PortfolioBLL bll;
         public PortfolioUI()
         {
             InitializeComponent();
+            bll = new PortfolioBLL();
         }
-
         private void PortfolioUI_Load(object sender, EventArgs e)
         {
-            PortfolioBLL bll = new PortfolioBLL();
-            grid.DataSource = bll.Listar();
+            carregarLista();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            AdicionarPortfolioUI form = new AdicionarPortfolioUI();
-            form.ShowDialog();
+            AdicionarPortfolioUI formAdicionarPortfolio = new AdicionarPortfolioUI(this);
+            formAdicionarPortfolio.ShowDialog();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            RemoverPortfolioUI form = new RemoverPortfolioUI(this);
-            form.ShowDialog();
-            //string id = grid.CurrentRow.Cells["ID"].Value.ToString();
-            //PortfolioBLL bll = new PortfolioBLL();
-            //bll.Remover(id);
-            //DataGridViewRow linhaAtual = grid.CurrentRow;
-            //int indice = linhaAtual.Index;
-            //var linhaSelec = grid.CurrentRow.Index;
-            // configurando valor da primeira coluna, índice 0
-            //string id = grid.Rows[indice].Cells[0].Value.ToString();
-            //int id = Convert.ToInt32(grid.Rows[indice].Cells[0].Value);
-            // MessageBox.Show(id);
-
+            for(int i = 0; i < grid.SelectedRows.Count; i++)
+            {
+                DialogResult dialogResult = MessageBox.Show("Sure?", "Excluir portfólio", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bll.Excluir(Convert.ToInt32(grid.SelectedRows[i].Cells[0].Value));
+                }
+                carregarLista();
+            }
         }
 
-        public string retornarMarcado()
+        public void carregarLista()
         {
-            return this.grid.CurrentRow.Cells["ID"].Value.ToString();
+            grid.DataSource = bll.Listar();
+            grid.Columns[0].HeaderText = "ID";
+            grid.Columns[0].ReadOnly = true;
+            grid.Columns[1].HeaderText = "Descrição";
+            grid.Columns[2].HeaderText = "Data de Criação";
+            grid.Columns[2].ReadOnly = true;
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AtividadeUI formAtividade = new AtividadeUI();
+            formAtividade.Show();
+        }
+
+        private void grid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            bll.Alterar(new Portfolio()
+            {
+                ID = Convert.ToInt32(grid[0, e.RowIndex].Value),
+                Descricao = grid[e.ColumnIndex, e.RowIndex].Value.ToString()
+            });
+        }
+
+        private void critérioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CriterioUI formCriterio = new CriterioUI();
+            formCriterio.Show();
+        }
+
+        private void btnRelacionar_Click(object sender, EventArgs e)
+        {
+            if(grid.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            RelacionarCriterioUI formRelacionarCriterio = new RelacionarCriterioUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
+            formRelacionarCriterio.Show();
         }
     }
 }
