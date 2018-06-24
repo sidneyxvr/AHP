@@ -38,6 +38,7 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnRelacionar = new System.Windows.Forms.Button();
+            this.btnGerenciar = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 28);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(639, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(527, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,7 +63,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(639, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(527, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -100,7 +101,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(52, 271);
+            this.btnAdicionar.Location = new System.Drawing.Point(30, 264);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
@@ -111,7 +112,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(195, 271);
+            this.btnExcluir.Location = new System.Drawing.Point(150, 264);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 28);
@@ -122,7 +123,7 @@
             // 
             // btnRelatorio
             // 
-            this.btnRelatorio.Location = new System.Drawing.Point(332, 271);
+            this.btnRelatorio.Location = new System.Drawing.Point(30, 326);
             this.btnRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(100, 28);
@@ -132,19 +133,29 @@
             // 
             // btnRelacionar
             // 
-            this.btnRelacionar.Location = new System.Drawing.Point(450, 274);
+            this.btnRelacionar.Location = new System.Drawing.Point(269, 264);
             this.btnRelacionar.Name = "btnRelacionar";
-            this.btnRelacionar.Size = new System.Drawing.Size(75, 23);
+            this.btnRelacionar.Size = new System.Drawing.Size(100, 28);
             this.btnRelacionar.TabIndex = 6;
-            this.btnRelacionar.Text = "button1";
+            this.btnRelacionar.Text = "Relacionar";
             this.btnRelacionar.UseVisualStyleBackColor = true;
             this.btnRelacionar.Click += new System.EventHandler(this.btnRelacionar_Click);
+            // 
+            // btnGerenciar
+            // 
+            this.btnGerenciar.Location = new System.Drawing.Point(395, 264);
+            this.btnGerenciar.Name = "btnGerenciar";
+            this.btnGerenciar.Size = new System.Drawing.Size(100, 28);
+            this.btnGerenciar.TabIndex = 7;
+            this.btnGerenciar.Text = "Gerenciar";
+            this.btnGerenciar.UseVisualStyleBackColor = true;
             // 
             // PortfolioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 383);
+            this.ClientSize = new System.Drawing.Size(527, 383);
+            this.Controls.Add(this.btnGerenciar);
             this.Controls.Add(this.btnRelacionar);
             this.Controls.Add(this.btnRelatorio);
             this.Controls.Add(this.btnExcluir);
@@ -177,5 +188,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Button btnRelacionar;
+        private System.Windows.Forms.Button btnGerenciar;
     }
 }

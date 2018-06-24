@@ -50,4 +50,4 @@ C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.AdicionarAtividadeUI.r
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.AtividadeUI.resources
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.AdicionarCriterioUI.resources
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.CriterioUI.resources
-C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioUI.resources
+C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.SelecionarCriterioAtividadeUI.resources

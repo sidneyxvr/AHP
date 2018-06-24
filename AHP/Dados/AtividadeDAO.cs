@@ -50,7 +50,7 @@ namespace AHP.Dados
                     list.Add(new Atividade()
                     {
                         ID = Convert.ToInt32(reader["id"].ToString()),
-                        Descricao = reader["descricao"].ToString(),
+                        Descricao = reader["descricao"].ToString()
                     });
                 }
                 db.Close();
