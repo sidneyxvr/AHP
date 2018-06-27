@@ -12,11 +12,13 @@ namespace AHP.Negocios
     {
         private PortfolioCriterioDAO pcDao;
         private CriterioDAO cDao;
+        private RelacaoCriterioDAO rcDao;
 
         public PortfolioCriterioBLL()
         {
             pcDao = new PortfolioCriterioDAO();
             cDao = new CriterioDAO();
+            rcDao = new RelacaoCriterioDAO();
         }
 
         public void Adicionar(PortfolioCriterio portfolioCriterio)
@@ -45,5 +47,16 @@ namespace AHP.Negocios
             }
             return result.OrderBy(i => i.Item1.Descricao).ToList();
         }
+
+        public void AdicionarRelacaoCriterioPortfolio(RelacaoCriterio relacaoCriterio)
+        {
+            rcDao.Adicionar(relacaoCriterio);
+        }
+
+        public void ExcluirRelacaoCriterioPortfolio(RelacaoCriterio relacaoCriterio)
+        {
+            rcDao.Excluir(relacaoCriterio);
+        }
+
     }
 }
