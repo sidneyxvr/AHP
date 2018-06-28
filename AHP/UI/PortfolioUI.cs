@@ -82,8 +82,17 @@ namespace AHP.UI
                 return;
             }
             SelecionarCriterioAtividadeUI formRelacionarCriterio = new SelecionarCriterioAtividadeUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
-            int n = Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value);
             formRelacionarCriterio.Show();
+        }
+
+        private void btnGerenciar_Click(object sender, EventArgs e)
+        {
+            if (grid.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            RelacionarCriterioAtividadeUI formGerenciarCriterio = new RelacionarCriterioAtividadeUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
+            formGerenciarCriterio.Show();
         }
     }
 }

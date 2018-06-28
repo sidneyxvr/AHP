@@ -48,9 +48,7 @@ namespace AHP.UI
                 listCheckBoxCriterio.Add(new CheckBox());
                 listCheckBoxCriterio[i].Location = new Point(20, (i * 20) + 20);
                 listCheckBoxCriterio[i].Text = listCriterios[i].Item1.Descricao;
-                Point p = listCheckBoxCriterio[i].Location;
                 listCheckBoxCriterio[i].Checked = listCriterios[i].Item2;
-                var b = listCheckBoxCriterio[i].Checked;
                 groupBoxCriterio.Controls.Add(listCheckBoxCriterio[i]);
                 listCheckBoxCriterio[i].CheckedChanged += new EventHandler(criterioSelecionado);
             }
@@ -64,9 +62,7 @@ namespace AHP.UI
                 listCheckBoxAtividade.Add(new CheckBox());
                 listCheckBoxAtividade[i].Location = new Point(20, (i * 20) + 20);
                 listCheckBoxAtividade[i].Text = listAtividades[i].Item1.Descricao;
-                Point p = listCheckBoxAtividade[i].Location;
                 listCheckBoxAtividade[i].Checked = listAtividades[i].Item2;
-                var b = listCheckBoxAtividade[i].Checked;
                 groupBoxAtividade.Controls.Add(listCheckBoxAtividade[i]);
                 listCheckBoxAtividade[i].CheckedChanged += new EventHandler(atividadeSelecionado);
             }
@@ -89,10 +85,45 @@ namespace AHP.UI
             if (ck.Checked == true)
             {
                 portfolioCriterio.Adicionar(pc);
+                List<Criterio> lista = portfolioCriterio.ListarPorPortfolio(portfolioId);
+                foreach(Criterio c in lista)
+                {
+                    portfolioCriterio.AdicionarRelacaoCriterioPortfolio(new RelacaoCriterio()
+                    {
+                        Criterio1 = new Criterio()
+                        {
+                            ID = pc.Criterio.ID
+                        },
+                        Criterio2 = new Criterio()
+                        {
+                            ID = c.ID
+                        },
+                        Nota = pc.Criterio.ID == c.ID ? 1.0: 0.0,
+                        Portfolio = new Portfolio()
+                        {
+                            ID = pc.Portfolio.ID
+                        }
+                    });
+                }
             }
             else
             {
-                portfolioCriterio.Excluir(pc);
+                List<Criterio> lista = portfolioCriterio.ListarPorPortfolio(portfolioId);
+                foreach (Criterio c in lista)
+                {
+                    portfolioCriterio.ExcluirRelacaoCriterioPortfolio(new RelacaoCriterio()
+                    {
+                        Criterio1 = new Criterio()
+                        {
+                            ID = pc.Criterio.ID
+                        },
+                        Portfolio = new Portfolio()
+                        {
+                            ID = pc.Portfolio.ID
+                        }
+                    });
+                    portfolioCriterio.Excluir(pc);
+                }
             }
         }
 

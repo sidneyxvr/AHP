@@ -25,20 +25,20 @@ namespace AHP.Dados
                 db.Close();
             }
         }
-        /*
-        public void Excluir(int id)
+        public void Excluir(RelacaoCriterio relacaoCriterio)
         {
             using (var db = BancoDados.getConnection)
             {
-                string query = "delete from atividade where id = @id";
+                string query = "delete from rel_criterio where criterio_id1 = @criterioId or " +
+                               "criterio_id2 = @criterioId and portfolio_id = @portfolioId";
                 MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("criterioId", relacaoCriterio.Criterio1.ID);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoCriterio.Portfolio.ID);
                 db.Open();
                 cmd.ExecuteNonQuery();
                 db.Close();
             }
         }
-        */
         public List<RelacaoCriterio> ListarPorPortfolio(int portfolioId)
         {
             List<RelacaoCriterio> list = new List<RelacaoCriterio>();
@@ -77,20 +77,64 @@ namespace AHP.Dados
             }
             return list;
         }
-        /*
-        public void Alterar(Atividade atividade)
+        
+        public void Alterar(RelacaoCriterio relacaoCriterio)
         {
             using (var db = BancoDados.getConnection)
             {
-                string query = "update atividade set descricao = @descricao where id = @id";
+                string query = "update rel_criterio set nota = @nota where criterio_id1 = @criterioId1 and " +
+                                "criterio_id2 = @criterioId2 and portfolio_id = @portfolioId";
                 MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", atividade.ID);
-                cmd.Parameters.AddWithValue("descricao", atividade.Descricao);
+                cmd.Parameters.AddWithValue("criterioId1", relacaoCriterio.Criterio1.ID);
+                cmd.Parameters.AddWithValue("criterioId2", relacaoCriterio.Criterio2.ID);
+                cmd.Parameters.AddWithValue("nota", relacaoCriterio.Nota);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoCriterio.Portfolio.ID);
                 db.Open();
                 cmd.ExecuteNonQuery();
                 db.Close();
             }
         }
-        */
+        
+        public RelacaoCriterio RelacaoPorCriterioPortfolio(RelacaoCriterio relacaoCriterio)
+        {
+            string query = "select c1.id as 'Criterio1', c2.id as 'Criterio2', " +
+                   "r.nota as Nota, p.id as Portfolio from rel_criterio r " +
+                   "join criterio c1 on c1.id = r.criterio_id1 " +
+                   "join criterio c2 on c2.id = r.criterio_id2 " +
+                   "join portfolio p on p.id = r.portfolio_id " +
+                   "where r.portfolio_id = @portfolioId and " +
+                   "r.criterio_id1 = @criterioId1 and " +
+                   "r.criterio_id2 = @criterioId2";
+            using (var db = BancoDados.getConnection)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, db);
+                cmd.Parameters.AddWithValue("criterioId1", relacaoCriterio.Criterio1.ID);
+                cmd.Parameters.AddWithValue("criterioId2", relacaoCriterio.Criterio2.ID);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoCriterio.Portfolio.ID);
+                db.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    return new RelacaoCriterio()
+                    {
+                        Criterio1 = new Criterio()
+                        {
+                            ID = Convert.ToInt32(reader["criterio1"])
+                        },
+                        Criterio2 = new Criterio()
+                        {
+                            ID = Convert.ToInt32(reader["criterio2"])
+                        },
+                        Nota = Convert.ToDouble(reader["nota"]),
+                        Portfolio = new Portfolio()
+                        {
+                            ID = Convert.ToInt32(reader["portfolio"])
+                        }
+                    };
+                }
+                db.Close();
+            }
+            return null;
+        }   
     }
 }
