@@ -20,14 +20,6 @@ namespace AHP.Negocios
             rcDao = new RelacaoCriterioDAO();
             this.portfolioId = portfolioId;
         }
-
-        public int Count
-        { 
-            get
-            {
-                return pcDao.ListarPorPortfolio(portfolioId).Count;
-            }
-        }
         
         public List<Criterio> ListarCriterios(int portfolioId)
         {
@@ -47,6 +39,11 @@ namespace AHP.Negocios
         public void Alterar(RelacaoCriterio relacaoCriterio)
         {
             rcDao.Alterar(relacaoCriterio);
+        }
+
+        public bool Verificar(RelacaoCriterio relacaoCriterio)
+        {
+            return rcDao.Verificar(relacaoCriterio);
         }
     }
 }

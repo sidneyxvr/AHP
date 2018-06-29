@@ -11,11 +11,13 @@ namespace AHP.Negocios
     class PortfolioAtividadeBLL
     {
         private PortfolioAtividadeDAO paDao;
+        private RelacaoAtividadeDAO raDao;
         private AtividadeDAO aDao;
 
         public PortfolioAtividadeBLL()
         {
             paDao = new PortfolioAtividadeDAO();
+            raDao = new RelacaoAtividadeDAO();
             aDao = new AtividadeDAO();
         }
 
@@ -44,6 +46,16 @@ namespace AHP.Negocios
                 result.Add(new Tuple<Atividade, bool>(s, noPortfolio.Select(i => i.Descricao).Contains(s.Descricao) ? true : false));
             }
             return result.OrderBy(i => i.Item1.Descricao).ToList();
+        }
+
+        public void AdicionarRelacaoAtividadePortfolio(RelacaoAtividade relacaoAtividade)
+        {
+            raDao.Adicionar(relacaoAtividade);
+        }
+
+        public void ExcluirRelacaoAtividadePortfolio(RelacaoAtividade relacaoAtividade)
+        {
+            raDao.Excluir(relacaoAtividade);
         }
     }
 }

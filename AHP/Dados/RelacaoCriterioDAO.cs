@@ -135,6 +135,26 @@ namespace AHP.Dados
                 db.Close();
             }
             return null;
-        }   
+        }
+
+        public bool Verificar(RelacaoCriterio relacaoCriterio)
+        {
+            using (var db = BancoDados.getConnection)
+            {
+                string query =
+                    "select * from rel_criterio where criterio_id1 = @criterioId1 " +
+                    "and criterio_id2 = @criterioId2 and portfolio_id = @portfolioId " +
+                    "limit 1";
+                MySqlCommand cmd = new MySqlCommand(query, db);
+                cmd.Parameters.AddWithValue("criterioId1", relacaoCriterio.Criterio1.ID);
+                cmd.Parameters.AddWithValue("criterioId2", relacaoCriterio.Criterio2.ID);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoCriterio.Portfolio.ID);
+                db.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                bool b = reader.Read();
+                db.Close();
+                return b;
+            }
+        }
     }
 }

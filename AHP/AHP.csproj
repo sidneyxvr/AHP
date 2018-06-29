@@ -68,6 +68,7 @@
     <Compile Include="Dados\CriterioDAO.cs" />
     <Compile Include="Dados\PortfolioAtividadeDAO.cs" />
     <Compile Include="Dados\PortfolioCriterioDAO.cs" />
+    <Compile Include="Dados\RelacaoAtividadeDAO.cs" />
     <Compile Include="Entidades\PortfolioAtividade.cs" />
     <Compile Include="Entidades\PortfolioCriterio.cs" />
     <Compile Include="Dados\PortfolioDAO.cs" />
@@ -75,12 +76,14 @@
     <Compile Include="Entidades\Atividade.cs" />
     <Compile Include="Entidades\Criterio.cs" />
     <Compile Include="Entidades\Portfolio.cs" />
+    <Compile Include="Entidades\RelacaoAtividade.cs" />
     <Compile Include="Entidades\RelacaoCriterio.cs" />
     <Compile Include="Negocios\AtividadeBLL.cs" />
     <Compile Include="Negocios\CriterioBLL.cs" />
     <Compile Include="Negocios\PortfolioAtividadeBLL.cs" />
     <Compile Include="Negocios\PortfolioBLL.cs" />
     <Compile Include="Negocios\PortfolioCriterioBLL.cs" />
+    <Compile Include="Negocios\RelacaoAtividadeBLL.cs" />
     <Compile Include="Negocios\RelacaoCriterioBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
