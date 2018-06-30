@@ -14,11 +14,10 @@ namespace AHP.Negocios
         private RelacaoCriterioDAO rcDao;
         private int portfolioId;
 
-        public RelacaoCriterioBLL(int portfolioId)
+        public RelacaoCriterioBLL()
         {
             pcDao = new PortfolioCriterioDAO();
             rcDao = new RelacaoCriterioDAO();
-            this.portfolioId = portfolioId;
         }
         
         public List<Criterio> ListarCriterios(int portfolioId)

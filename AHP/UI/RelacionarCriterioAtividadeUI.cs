@@ -60,7 +60,7 @@ namespace AHP.UI
             alocarLabelsVertical(ref atividades, ref listLabelVerticalAtividade, ref panelAtividadeVertical);
             alocarTextBox(ref atividades, ref listTextBoxAtividade, ref panelAtividadePrincipal);
             preencherComboBoxCriterio();
-            carregarTextBoxAtividade();
+           // carregarTextBoxAtividade();
         }
         
         public void alocarLabelsHorizontal<T>(ref List<T> list, ref List<Label> listLabelHorizontal, ref Panel panel)
@@ -103,7 +103,7 @@ namespace AHP.UI
 
         public void alocarTextBox<T>(ref List<T> list, ref List<List<TextBox>> listTextBox, ref Panel panel)
         {
-            for (int i = 0; i < criterios.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 listTextBox.Add(new List<TextBox>());
                 for (int j = 0; j < list.Count; j++)
@@ -157,15 +157,15 @@ namespace AHP.UI
                 {
                     listTextBoxCriterio[i][j].Enabled = false;
                 }
-                listTextBoxCriterio[j][i].Text = (1 / Convert.ToDouble(obj.Nota.ToString())).ToString();
-                listTextBoxCriterio[i][j].Text = obj.Nota.ToString();
+                listTextBoxCriterio[j][i].Text = arredondar((1 / Convert.ToDouble(obj.Nota.ToString())).ToString());
+                listTextBoxCriterio[i][j].Text = arredondar(obj.Nota.ToString());
             }
         }
 
         public void eventCriterio(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
+            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9 || t.Text.Trim() == "")
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
@@ -189,7 +189,7 @@ namespace AHP.UI
                     ID = portfolioId
                 }
             };
-            listTextBoxCriterio[point.Item2][point.Item1].Text = (1 / Convert.ToDouble(listTextBoxCriterio[point.Item1][point.Item2].Text)).ToString();
+            listTextBoxCriterio[point.Item2][point.Item1].Text = arredondar((1 / Convert.ToDouble(listTextBoxCriterio[point.Item1][point.Item2].Text)).ToString());
             if(!rcBll.Verificar(r))
             {
                 int c = r.Criterio1.ID;
@@ -215,7 +215,7 @@ namespace AHP.UI
         public void eventAtividade(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
+            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9 || t.Text.Trim() == "")
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
@@ -243,7 +243,7 @@ namespace AHP.UI
                     ID = portfolioId
                 }
             };
-            listTextBoxAtividade[point.Item2][point.Item1].Text = (1 / Convert.ToDouble(listTextBoxAtividade[point.Item1][point.Item2].Text)).ToString();
+            listTextBoxAtividade[point.Item2][point.Item1].Text = arredondar((1 / Convert.ToDouble(listTextBoxAtividade[point.Item1][point.Item2].Text)).ToString());
             if (!raBll.Verificar(r))
             {
                 int c = r.Atividade1.ID;
@@ -277,9 +277,27 @@ namespace AHP.UI
                 {
                     listTextBoxAtividade[i][j].Enabled = false;
                 }
-                listTextBoxAtividade[j][i].Text = (1 / Convert.ToDouble(obj.Nota.ToString())).ToString();
-                listTextBoxAtividade[i][j].Text = obj.Nota.ToString();
+                listTextBoxAtividade[j][i].Text = arredondar((1 / Convert.ToDouble(obj.Nota.ToString())).ToString());
+                listTextBoxAtividade[i][j].Text = arredondar(obj.Nota.ToString());
             }
+        }
+
+        private string arredondar(string nota)
+        {
+            if (Double.IsInfinity(Convert.ToDouble(nota)))
+            {
+                return "0";
+            }
+            double EPS = 0.00001;
+            bool isDouble = nota.Split('.').Count() > 0? true: false;
+            if (isDouble)
+            {
+                if (Convert.ToDouble(nota) - Convert.ToUInt32(Convert.ToDouble(nota)) < EPS)
+                {
+                    return Convert.ToUInt32(Convert.ToDouble(nota)).ToString();
+                }
+            }
+            return nota;
         }
 
         private void RelacionarCriterioAtividadeUI_FormClosing(object sender, FormClosingEventArgs e)

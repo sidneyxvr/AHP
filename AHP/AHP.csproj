@@ -129,6 +129,12 @@
     <Compile Include="UI\RelacionarCriterioAtividadeUI.Designer.cs">
       <DependentUpon>RelacionarCriterioAtividadeUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RelatorioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RelatorioUI.Designer.cs">
+      <DependentUpon>RelatorioUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SelecionarCriterioAtividadeUI.cs">
       <SubType>Form</SubType>
     </Compile>

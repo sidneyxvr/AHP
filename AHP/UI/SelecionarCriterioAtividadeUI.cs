@@ -105,8 +105,8 @@ namespace AHP.UI
                             ID = pc.Portfolio.ID
                         }
                     });
-                    check(pc.Criterio.ID);
                 }
+                check(pc.Criterio.ID);
             }
             else
             {
@@ -209,36 +209,35 @@ namespace AHP.UI
             }
         }
 
-        public void check(int criterioId)
+        private void check(int criterioId)
         {
             List<Atividade> listA = portfolioAtividadeBLL.ListarPorPortfolio(portfolioId);
             if (listA.Count > 0)
             {
-                foreach (Atividade a1 in listA)
+                for (int i = 0; i < listA.Count; i++)
                 {
-                    foreach(Atividade a2 in listA)
+                    for (int j = i; j < listA.Count; j++)
                     {
                         portfolioAtividadeBLL.AdicionarRelacaoAtividadePortfolio(new RelacaoAtividade()
                         {
                             Atividade1 = new Atividade()
                             {
-                                ID = a2.ID
+                                ID = listA[j].ID
                             },
                             Atividade2 = new Atividade()
                             { 
-                                ID = a1.ID
+                                ID = listA[i].ID
                             },
                             Criterio = new Criterio()
                             {
                                 ID = criterioId
                             },
-                            Nota = a1.ID == a2.ID ? 1.0 : 0.0,
+                            Nota = listA[i].ID == listA[j].ID ? 1.0 : 0.0,
                             Portfolio = new Portfolio()
                             {
                                 ID = portfolioId
                             }
                         });
-                        MessageBox.Show(a2.ID.ToString() + " - " + a1.ID.ToString() + " - " + criterioId.ToString() + " - " + portfolioId.ToString());
                     }
                 }
             }

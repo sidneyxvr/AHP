@@ -14,11 +14,10 @@ namespace AHP.Negocios
         private RelacaoAtividadeDAO raDao;
         private int portfolioId;
 
-        public RelacaoAtividadeBLL(int portfolioId)
+        public RelacaoAtividadeBLL()
         {
             paDao = new PortfolioAtividadeDAO();
             raDao = new RelacaoAtividadeDAO();
-            this.portfolioId = portfolioId;
         }
 
         public List<Atividade> ListarAtividades(int portfolioId)
