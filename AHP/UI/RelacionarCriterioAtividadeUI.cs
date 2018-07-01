@@ -33,12 +33,12 @@ namespace AHP.UI
         {
             InitializeComponent();
             this.portfolioId = portfolioId;
-            rcBll = new RelacaoCriterioBLL(portfolioId);
+            rcBll = new RelacaoCriterioBLL();
             listLabelHorizontalCriterio = new List<Label>();
             listLabelVerticalCriterio = new List<Label>();
             listTextBoxCriterio = new List<List<TextBox>>();
 
-            raBll = new RelacaoAtividadeBLL(portfolioId);
+            raBll = new RelacaoAtividadeBLL();
             listLabelHorizontalAtividade = new List<Label>();
             listLabelVerticalAtividade = new List<Label>();
             listTextBoxAtividade = new List<List<TextBox>>();

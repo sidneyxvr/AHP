@@ -12,7 +12,6 @@ namespace AHP.Negocios
     {
         private PortfolioAtividadeDAO paDao;
         private RelacaoAtividadeDAO raDao;
-        private int portfolioId;
 
         public RelacaoAtividadeBLL()
         {

@@ -94,5 +94,15 @@ namespace AHP.UI
             RelacionarCriterioAtividadeUI formGerenciarCriterio = new RelacionarCriterioAtividadeUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
             formGerenciarCriterio.Show();
         }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            if (grid.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            RelatorioUI formRelatorio = new RelatorioUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
+            formRelatorio.Show();
+        }
     }
 }

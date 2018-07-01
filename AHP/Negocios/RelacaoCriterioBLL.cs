@@ -12,7 +12,6 @@ namespace AHP.Negocios
     {
         private PortfolioCriterioDAO pcDao;
         private RelacaoCriterioDAO rcDao;
-        private int portfolioId;
 
         public RelacaoCriterioBLL()
         {
