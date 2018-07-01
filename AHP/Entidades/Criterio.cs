@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AHP.Entidades
 {
-    class Criterio
+    public class Criterio
     {
         public int ID { get; set; }
         public string Descricao { get; set; }

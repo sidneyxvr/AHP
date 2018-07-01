@@ -30,12 +30,17 @@
         {
             this.tabRelacaoCriterioAtividade = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelCriterioPrincipal = new System.Windows.Forms.Panel();
             this.panelCriterioVertical = new System.Windows.Forms.Panel();
             this.panelCriterioHorizontal = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbxCriterio = new System.Windows.Forms.ComboBox();
+            this.panelAtividadePrincipal = new System.Windows.Forms.Panel();
+            this.panelAtividadeVertical = new System.Windows.Forms.Panel();
+            this.panelAtividadeHorizontal = new System.Windows.Forms.Panel();
             this.tabRelacaoCriterioAtividade.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabRelacaoCriterioAtividade
@@ -50,7 +55,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panelPrincipal);
+            this.tabPage1.Controls.Add(this.panelCriterioPrincipal);
             this.tabPage1.Controls.Add(this.panelCriterioVertical);
             this.tabPage1.Controls.Add(this.panelCriterioHorizontal);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -58,15 +63,15 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(853, 507);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Critérios";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // panelPrincipal
+            // panelCriterioPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(135, 53);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(712, 352);
-            this.panelPrincipal.TabIndex = 2;
+            this.panelCriterioPrincipal.Location = new System.Drawing.Point(135, 53);
+            this.panelCriterioPrincipal.Name = "panelCriterioPrincipal";
+            this.panelCriterioPrincipal.Size = new System.Drawing.Size(712, 352);
+            this.panelCriterioPrincipal.TabIndex = 2;
             // 
             // panelCriterioVertical
             // 
@@ -84,13 +89,47 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbxCriterio);
+            this.tabPage2.Controls.Add(this.panelAtividadePrincipal);
+            this.tabPage2.Controls.Add(this.panelAtividadeVertical);
+            this.tabPage2.Controls.Add(this.panelAtividadeHorizontal);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(853, 507);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Atividades";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbxCriterio
+            // 
+            this.cbxCriterio.FormattingEnabled = true;
+            this.cbxCriterio.Location = new System.Drawing.Point(6, 6);
+            this.cbxCriterio.Name = "cbxCriterio";
+            this.cbxCriterio.Size = new System.Drawing.Size(205, 21);
+            this.cbxCriterio.TabIndex = 6;
+            this.cbxCriterio.SelectedIndexChanged += new System.EventHandler(this.cbxAtividade_SelectedIndexChanged);
+            // 
+            // panelAtividadePrincipal
+            // 
+            this.panelAtividadePrincipal.Location = new System.Drawing.Point(135, 80);
+            this.panelAtividadePrincipal.Name = "panelAtividadePrincipal";
+            this.panelAtividadePrincipal.Size = new System.Drawing.Size(712, 352);
+            this.panelAtividadePrincipal.TabIndex = 5;
+            // 
+            // panelAtividadeVertical
+            // 
+            this.panelAtividadeVertical.Location = new System.Drawing.Point(6, 80);
+            this.panelAtividadeVertical.Name = "panelAtividadeVertical";
+            this.panelAtividadeVertical.Size = new System.Drawing.Size(128, 352);
+            this.panelAtividadeVertical.TabIndex = 4;
+            // 
+            // panelAtividadeHorizontal
+            // 
+            this.panelAtividadeHorizontal.Location = new System.Drawing.Point(135, 33);
+            this.panelAtividadeHorizontal.Name = "panelAtividadeHorizontal";
+            this.panelAtividadeHorizontal.Size = new System.Drawing.Size(712, 40);
+            this.panelAtividadeHorizontal.TabIndex = 3;
             // 
             // RelacionarCriterioAtividadeUI
             // 
@@ -100,9 +139,11 @@
             this.Controls.Add(this.tabRelacaoCriterioAtividade);
             this.Name = "RelacionarCriterioAtividadeUI";
             this.Text = "RelacionarCriterioAtividade";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RelacionarCriterioAtividadeUI_FormClosing);
             this.Load += new System.EventHandler(this.RelacionarCriterioAtividade_Load);
             this.tabRelacaoCriterioAtividade.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -114,6 +155,10 @@
         private System.Windows.Forms.Panel panelCriterioVertical;
         private System.Windows.Forms.Panel panelCriterioHorizontal;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panelPrincipal;
+        private System.Windows.Forms.Panel panelCriterioPrincipal;
+        private System.Windows.Forms.ComboBox cbxCriterio;
+        private System.Windows.Forms.Panel panelAtividadePrincipal;
+        private System.Windows.Forms.Panel panelAtividadeVertical;
+        private System.Windows.Forms.Panel panelAtividadeHorizontal;
     }
 }
