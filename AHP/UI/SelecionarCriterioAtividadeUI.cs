@@ -124,8 +124,34 @@ namespace AHP.UI
                             ID = pc.Portfolio.ID
                         }
                     });
-                    portfolioCriterioBLL.Excluir(pc);
                 }
+                List<Atividade> list = portfolioAtividadeBLL.ListarPorPortfolio(portfolioId);
+                foreach(Atividade a1 in list)
+                {
+                    foreach (Atividade a2 in list)
+                    {
+                        portfolioAtividadeBLL.ExcluirRelacaoAtividadePortfolio(new RelacaoAtividade()
+                        {
+                            Atividade1 = new Atividade()
+                            {
+                                ID = a1.ID
+                            },
+                            Atividade2 = new Atividade()
+                            {
+                                ID = a2.ID
+                            },
+                            Criterio = new Criterio()
+                            {
+                                ID = pc.Criterio.ID
+                            },
+                            Portfolio = new Portfolio()
+                            {
+                                ID = pc.Portfolio.ID
+                            }
+                        });
+                    }
+                }
+                portfolioCriterioBLL.Excluir(pc);
             }
         }
 
