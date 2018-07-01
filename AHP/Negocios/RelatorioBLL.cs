@@ -30,6 +30,7 @@ namespace AHP.Negocios
             rcDao = new RelacaoCriterioDAO();
             raDao = new RelacaoAtividadeDAO();
             preencherMatriz();
+            
         }
 
         public void preencherMatriz()

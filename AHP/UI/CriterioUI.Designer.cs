@@ -31,12 +31,14 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(265, 265);
+            this.btnExcluir.Location = new System.Drawing.Point(398, 454);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 28);
@@ -47,7 +49,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(122, 265);
+            this.btnAdicionar.Location = new System.Drawing.Point(255, 454);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
@@ -61,25 +63,35 @@
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(28, 22);
+            this.grid.Location = new System.Drawing.Point(4, 4);
             this.grid.Margin = new System.Windows.Forms.Padding(4);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(492, 185);
+            this.grid.Size = new System.Drawing.Size(748, 442);
             this.grid.TabIndex = 8;
             this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
+            // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.grid);
+            this.panelMain.Controls.Add(this.btnExcluir);
+            this.panelMain.Controls.Add(this.btnAdicionar);
+            this.panelMain.Location = new System.Drawing.Point(22, 12);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(756, 505);
+            this.panelMain.TabIndex = 11;
             // 
             // CriterioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.grid);
+            this.ClientSize = new System.Drawing.Size(800, 529);
+            this.Controls.Add(this.panelMain);
             this.Name = "CriterioUI";
             this.Text = "CriterioUI";
             this.Load += new System.EventHandler(this.CriterioUI_Load);
+            this.SizeChanged += new System.EventHandler(this.CriterioUI_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -89,5 +101,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

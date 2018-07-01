@@ -30,11 +30,13 @@
         {
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(45, 44);
+            this.txtDescricao.Location = new System.Drawing.Point(4, 15);
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(250, 22);
@@ -42,7 +44,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(195, 84);
+            this.btnAdicionar.Location = new System.Drawing.Point(154, 55);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
@@ -51,19 +53,29 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.txtDescricao);
+            this.panelMain.Controls.Add(this.btnAdicionar);
+            this.panelMain.Location = new System.Drawing.Point(42, 33);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(261, 100);
+            this.panelMain.TabIndex = 4;
+            // 
             // AdicionarAtividadeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 181);
-            this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.panelMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdicionarAtividadeUI";
             this.Text = "AdicionarAtividadeUI";
+            this.SizeChanged += new System.EventHandler(this.AdicionarAtividadeUI_SizeChanged);
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

@@ -62,5 +62,11 @@ namespace AHP.UI
                 Descricao = grid[e.ColumnIndex, e.RowIndex].Value.ToString()
             });
         }
+
+        private void CriterioUI_SizeChanged(object sender, EventArgs e)
+        {
+            this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2),
+                                                (this.Height / 2) - (panelMain.Height / 2));
+        }
     }
 }

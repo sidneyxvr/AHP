@@ -47,10 +47,11 @@
             // 
             this.tabRelacaoCriterioAtividade.Controls.Add(this.tabPage1);
             this.tabRelacaoCriterioAtividade.Controls.Add(this.tabPage2);
-            this.tabRelacaoCriterioAtividade.Location = new System.Drawing.Point(13, 12);
+            this.tabRelacaoCriterioAtividade.Location = new System.Drawing.Point(17, 15);
+            this.tabRelacaoCriterioAtividade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabRelacaoCriterioAtividade.Name = "tabRelacaoCriterioAtividade";
             this.tabRelacaoCriterioAtividade.SelectedIndex = 0;
-            this.tabRelacaoCriterioAtividade.Size = new System.Drawing.Size(861, 533);
+            this.tabRelacaoCriterioAtividade.Size = new System.Drawing.Size(1148, 656);
             this.tabRelacaoCriterioAtividade.TabIndex = 0;
             // 
             // tabPage1
@@ -58,33 +59,37 @@
             this.tabPage1.Controls.Add(this.panelCriterioPrincipal);
             this.tabPage1.Controls.Add(this.panelCriterioVertical);
             this.tabPage1.Controls.Add(this.panelCriterioHorizontal);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(853, 507);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1140, 627);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Critérios";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panelCriterioPrincipal
             // 
-            this.panelCriterioPrincipal.Location = new System.Drawing.Point(135, 53);
+            this.panelCriterioPrincipal.Location = new System.Drawing.Point(180, 65);
+            this.panelCriterioPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCriterioPrincipal.Name = "panelCriterioPrincipal";
-            this.panelCriterioPrincipal.Size = new System.Drawing.Size(712, 352);
+            this.panelCriterioPrincipal.Size = new System.Drawing.Size(949, 433);
             this.panelCriterioPrincipal.TabIndex = 2;
             // 
             // panelCriterioVertical
             // 
-            this.panelCriterioVertical.Location = new System.Drawing.Point(6, 53);
+            this.panelCriterioVertical.Location = new System.Drawing.Point(8, 65);
+            this.panelCriterioVertical.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCriterioVertical.Name = "panelCriterioVertical";
-            this.panelCriterioVertical.Size = new System.Drawing.Size(128, 352);
+            this.panelCriterioVertical.Size = new System.Drawing.Size(171, 433);
             this.panelCriterioVertical.TabIndex = 1;
             // 
             // panelCriterioHorizontal
             // 
-            this.panelCriterioHorizontal.Location = new System.Drawing.Point(135, 6);
+            this.panelCriterioHorizontal.Location = new System.Drawing.Point(180, 7);
+            this.panelCriterioHorizontal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCriterioHorizontal.Name = "panelCriterioHorizontal";
-            this.panelCriterioHorizontal.Size = new System.Drawing.Size(712, 40);
+            this.panelCriterioHorizontal.Size = new System.Drawing.Size(949, 49);
             this.panelCriterioHorizontal.TabIndex = 0;
             // 
             // tabPage2
@@ -93,10 +98,11 @@
             this.tabPage2.Controls.Add(this.panelAtividadePrincipal);
             this.tabPage2.Controls.Add(this.panelAtividadeVertical);
             this.tabPage2.Controls.Add(this.panelAtividadeHorizontal);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(853, 507);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1140, 627);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Atividades";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -104,43 +110,49 @@
             // cbxCriterio
             // 
             this.cbxCriterio.FormattingEnabled = true;
-            this.cbxCriterio.Location = new System.Drawing.Point(6, 6);
+            this.cbxCriterio.Location = new System.Drawing.Point(8, 7);
+            this.cbxCriterio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxCriterio.Name = "cbxCriterio";
-            this.cbxCriterio.Size = new System.Drawing.Size(205, 21);
+            this.cbxCriterio.Size = new System.Drawing.Size(272, 24);
             this.cbxCriterio.TabIndex = 6;
             this.cbxCriterio.SelectedIndexChanged += new System.EventHandler(this.cbxAtividade_SelectedIndexChanged);
             // 
             // panelAtividadePrincipal
             // 
-            this.panelAtividadePrincipal.Location = new System.Drawing.Point(135, 80);
+            this.panelAtividadePrincipal.Location = new System.Drawing.Point(180, 98);
+            this.panelAtividadePrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAtividadePrincipal.Name = "panelAtividadePrincipal";
-            this.panelAtividadePrincipal.Size = new System.Drawing.Size(712, 352);
+            this.panelAtividadePrincipal.Size = new System.Drawing.Size(949, 433);
             this.panelAtividadePrincipal.TabIndex = 5;
             // 
             // panelAtividadeVertical
             // 
-            this.panelAtividadeVertical.Location = new System.Drawing.Point(6, 80);
+            this.panelAtividadeVertical.Location = new System.Drawing.Point(8, 98);
+            this.panelAtividadeVertical.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAtividadeVertical.Name = "panelAtividadeVertical";
-            this.panelAtividadeVertical.Size = new System.Drawing.Size(128, 352);
+            this.panelAtividadeVertical.Size = new System.Drawing.Size(171, 433);
             this.panelAtividadeVertical.TabIndex = 4;
             // 
             // panelAtividadeHorizontal
             // 
-            this.panelAtividadeHorizontal.Location = new System.Drawing.Point(135, 33);
+            this.panelAtividadeHorizontal.Location = new System.Drawing.Point(180, 41);
+            this.panelAtividadeHorizontal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelAtividadeHorizontal.Name = "panelAtividadeHorizontal";
-            this.panelAtividadeHorizontal.Size = new System.Drawing.Size(712, 40);
+            this.panelAtividadeHorizontal.Size = new System.Drawing.Size(949, 49);
             this.panelAtividadeHorizontal.TabIndex = 3;
             // 
             // RelacionarCriterioAtividadeUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 557);
+            this.ClientSize = new System.Drawing.Size(1181, 731);
             this.Controls.Add(this.tabRelacaoCriterioAtividade);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RelacionarCriterioAtividadeUI";
             this.Text = "RelacionarCriterioAtividade";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RelacionarCriterioAtividadeUI_FormClosing);
             this.Load += new System.EventHandler(this.RelacionarCriterioAtividade_Load);
+            this.SizeChanged += new System.EventHandler(this.RelacionarCriterioAtividadeUI_SizeChanged);
             this.tabRelacaoCriterioAtividade.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

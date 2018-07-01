@@ -104,5 +104,11 @@ namespace AHP.UI
             RelatorioUI formRelatorio = new RelatorioUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
             formRelatorio.Show();
         }
+
+        private void PortfolioUI_SizeChanged(object sender, EventArgs e)
+        {
+            this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2), 
+                                                (this.Height / 2) - (panelMain.Height / 2));
+        }
     }
 }

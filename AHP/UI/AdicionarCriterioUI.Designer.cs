@@ -30,11 +30,13 @@
         {
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(182, 85);
+            this.btnAdicionar.Location = new System.Drawing.Point(166, 59);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
@@ -45,25 +47,35 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(32, 45);
+            this.txtDescricao.Location = new System.Drawing.Point(16, 19);
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(250, 22);
             this.txtDescricao.TabIndex = 4;
+            // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.txtDescricao);
+            this.panelMain.Controls.Add(this.btnAdicionar);
+            this.panelMain.Location = new System.Drawing.Point(27, 24);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(278, 117);
+            this.panelMain.TabIndex = 6;
             // 
             // AdicionarCriterioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 170);
-            this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.txtDescricao);
+            this.Controls.Add(this.panelMain);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdicionarCriterioUI";
             this.Text = "AdicionarCriterioUI";
+            this.SizeChanged += new System.EventHandler(this.AdicionarCriterioUI_SizeChanged);
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
