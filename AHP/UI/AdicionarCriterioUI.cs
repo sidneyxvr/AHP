@@ -31,5 +31,11 @@ namespace AHP.UI
             });
             form.carregarLista();
         }
+
+        private void AdicionarCriterioUI_SizeChanged(object sender, EventArgs e)
+        {
+            this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2),
+                                                (this.Height / 2) - (panelMain.Height / 2));
+        }
     }
 }

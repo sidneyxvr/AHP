@@ -60,7 +60,6 @@ namespace AHP.UI
             alocarLabelsVertical(ref atividades, ref listLabelVerticalAtividade, ref panelAtividadeVertical);
             alocarTextBox(ref atividades, ref listTextBoxAtividade, ref panelAtividadePrincipal);
             preencherComboBoxCriterio();
-           // carregarTextBoxAtividade();
         }
         
         public void alocarLabelsHorizontal<T>(ref List<T> list, ref List<Label> listLabelHorizontal, ref Panel panel)
@@ -138,6 +137,34 @@ namespace AHP.UI
                 }
             }
             return new Tuple<int, int>(-1, -1);
+        }
+
+        private string arredondar(string nota)
+        {
+            if (Double.IsInfinity(Convert.ToDouble(nota)))
+            {
+                return "0";
+            }
+            double EPS = 0.00001;
+            bool isDouble = nota.Split('.').Count() > 0 ? true : false;
+            if (isDouble)
+            {
+                if (Convert.ToDouble(nota) - Convert.ToUInt32(Convert.ToDouble(nota)) < EPS)
+                {
+                    return Convert.ToUInt32(Convert.ToDouble(nota)).ToString();
+                }
+            }
+            return nota;
+        }
+
+        private void RelacionarCriterioAtividadeUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void cbxAtividade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregarTextBoxAtividade();
         }
 
         /*===================================================================================================
@@ -282,32 +309,10 @@ namespace AHP.UI
             }
         }
 
-        private string arredondar(string nota)
+        private void RelacionarCriterioAtividadeUI_SizeChanged(object sender, EventArgs e)
         {
-            if (Double.IsInfinity(Convert.ToDouble(nota)))
-            {
-                return "0";
-            }
-            double EPS = 0.00001;
-            bool isDouble = nota.Split('.').Count() > 0? true: false;
-            if (isDouble)
-            {
-                if (Convert.ToDouble(nota) - Convert.ToUInt32(Convert.ToDouble(nota)) < EPS)
-                {
-                    return Convert.ToUInt32(Convert.ToDouble(nota)).ToString();
-                }
-            }
-            return nota;
-        }
-
-        private void RelacionarCriterioAtividadeUI_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void cbxAtividade_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            carregarTextBoxAtividade();
+            this.tabRelacaoCriterioAtividade.Location = new Point((this.Width / 2) - (tabRelacaoCriterioAtividade.Width / 2),
+                                                                  (this.Height / 2) - (tabRelacaoCriterioAtividade.Height / 2));
         }
     }
 }

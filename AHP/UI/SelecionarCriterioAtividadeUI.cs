@@ -272,5 +272,11 @@ namespace AHP.UI
         {
             this.Dispose();
         }
+
+        private void SelecionarCriterioAtividadeUI_SizeChanged(object sender, EventArgs e)
+        {
+            this.tabCriterio.Location = new Point((this.Width / 2) - (tabCriterio.Width / 2),
+                                                (this.Height / 2) - (tabCriterio.Height / 2));
+        }
     }
 }

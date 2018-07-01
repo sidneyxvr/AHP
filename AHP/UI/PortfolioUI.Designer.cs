@@ -39,8 +39,10 @@
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnRelacionar = new System.Windows.Forms.Button();
             this.btnGerenciar = new System.Windows.Forms.Button();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -49,7 +51,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 28);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(527, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(966, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,7 +65,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(527, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(966, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -92,17 +94,17 @@
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Location = new System.Drawing.Point(16, 47);
-            this.grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grid.Location = new System.Drawing.Point(21, 17);
+            this.grid.Margin = new System.Windows.Forms.Padding(4);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(492, 185);
+            this.grid.Size = new System.Drawing.Size(676, 434);
             this.grid.TabIndex = 2;
             this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(29, 263);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdicionar.Location = new System.Drawing.Point(64, 459);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
             this.btnAdicionar.TabIndex = 3;
@@ -112,8 +114,8 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(149, 263);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExcluir.Location = new System.Drawing.Point(184, 459);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 28);
             this.btnExcluir.TabIndex = 4;
@@ -123,8 +125,8 @@
             // 
             // btnRelatorio
             // 
-            this.btnRelatorio.Location = new System.Drawing.Point(29, 326);
-            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRelatorio.Location = new System.Drawing.Point(549, 459);
+            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(100, 28);
             this.btnRelatorio.TabIndex = 5;
@@ -134,7 +136,7 @@
             // 
             // btnRelacionar
             // 
-            this.btnRelacionar.Location = new System.Drawing.Point(269, 263);
+            this.btnRelacionar.Location = new System.Drawing.Point(304, 459);
             this.btnRelacionar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRelacionar.Name = "btnRelacionar";
             this.btnRelacionar.Size = new System.Drawing.Size(100, 28);
@@ -145,7 +147,7 @@
             // 
             // btnGerenciar
             // 
-            this.btnGerenciar.Location = new System.Drawing.Point(395, 263);
+            this.btnGerenciar.Location = new System.Drawing.Point(430, 459);
             this.btnGerenciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGerenciar.Name = "btnGerenciar";
             this.btnGerenciar.Size = new System.Drawing.Size(100, 28);
@@ -154,27 +156,37 @@
             this.btnGerenciar.UseVisualStyleBackColor = true;
             this.btnGerenciar.Click += new System.EventHandler(this.btnGerenciar_Click);
             // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.grid);
+            this.panelMain.Controls.Add(this.btnGerenciar);
+            this.panelMain.Controls.Add(this.btnAdicionar);
+            this.panelMain.Controls.Add(this.btnRelacionar);
+            this.panelMain.Controls.Add(this.btnExcluir);
+            this.panelMain.Controls.Add(this.btnRelatorio);
+            this.panelMain.Location = new System.Drawing.Point(105, 55);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(714, 509);
+            this.panelMain.TabIndex = 8;
+            // 
             // PortfolioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 383);
-            this.Controls.Add(this.btnGerenciar);
-            this.Controls.Add(this.btnRelacionar);
-            this.Controls.Add(this.btnRelatorio);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAdicionar);
-            this.Controls.Add(this.grid);
+            this.ClientSize = new System.Drawing.Size(966, 660);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PortfolioUI";
             this.Text = "Portfolio";
             this.Load += new System.EventHandler(this.PortfolioUI_Load);
+            this.SizeChanged += new System.EventHandler(this.PortfolioUI_SizeChanged);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +205,6 @@
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Button btnRelacionar;
         private System.Windows.Forms.Button btnGerenciar;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
