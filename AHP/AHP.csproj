@@ -85,6 +85,7 @@
     <Compile Include="Negocios\PortfolioCriterioBLL.cs" />
     <Compile Include="Negocios\RelacaoAtividadeBLL.cs" />
     <Compile Include="Negocios\RelacaoCriterioBLL.cs" />
+    <Compile Include="Negocios\RelatorioBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\AdicionarAtividadeUI.cs">

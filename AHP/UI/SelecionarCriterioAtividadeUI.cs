@@ -197,7 +197,6 @@ namespace AHP.UI
                             {
                                 ID = c.ID
                             },
-                            Nota = pa.Atividade.ID == a.ID ? 1.0 : 0.0,
                             Portfolio = new Portfolio()
                             {
                                 ID = pa.Portfolio.ID
