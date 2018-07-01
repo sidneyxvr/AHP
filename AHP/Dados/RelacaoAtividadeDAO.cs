@@ -30,12 +30,13 @@ namespace AHP.Dados
         {
             using (var db = BancoDados.getConnection)
             {
-                string query = "delete from rel_atividade where atividade_id1 = @atividadeId or " +
-                               "atividade_id2 = @atividadeId and portfolio_id = @portfolioId and " +
+                string query = "delete from rel_atividade where (atividade_id1 = @atividadeId1 and " +
+                               "atividade_id2 = @atividadeId2) and portfolio_id = @portfolioId and " +
                                "criterio_id = @criterioId";
                 MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("atividadeId", relacaoAtividade.Atividade1.ID);
-                cmd.Parameters.AddWithValue("criterioId", relacaoAtividade.Atividade1.ID);
+                cmd.Parameters.AddWithValue("atividadeId1", relacaoAtividade.Atividade1.ID);
+                cmd.Parameters.AddWithValue("atividadeId2", relacaoAtividade.Atividade2.ID);
+                cmd.Parameters.AddWithValue("criterioId", relacaoAtividade.Criterio.ID);
                 cmd.Parameters.AddWithValue("portfolioId", relacaoAtividade.Portfolio.ID);
                 db.Open();
                 cmd.ExecuteNonQuery();
