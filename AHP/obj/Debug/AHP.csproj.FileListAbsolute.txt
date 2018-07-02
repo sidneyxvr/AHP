@@ -29,7 +29,6 @@ C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csproj.CoreCompileInputs.cache
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.exe
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.pdb
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csprojResolveAssemblyReference.cache
-C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RemoverPortfolioUI.resources
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.exe.config
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.exe
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.pdb
@@ -74,3 +73,9 @@ C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.exe
 C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.pdb
 C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioAtividadeUI.resources
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioAtividadeUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.AdicionarAtividadeUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.AdicionarCriterioUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.AtividadeUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.CriterioUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioAtividadeUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.SelecionarCriterioAtividadeUI.resources
