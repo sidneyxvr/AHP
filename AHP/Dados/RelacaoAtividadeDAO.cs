@@ -26,23 +26,7 @@ namespace AHP.Dados
                 db.Close();
             }
         }
-        public void Excluir(RelacaoAtividade relacaoAtividade)
-        {
-            using (var db = BancoDados.getConnection)
-            {
-                string query = "delete from rel_atividade where (atividade_id1 = @atividadeId1 and " +
-                               "atividade_id2 = @atividadeId2) and portfolio_id = @portfolioId and " +
-                               "criterio_id = @criterioId";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("atividadeId1", relacaoAtividade.Atividade1.ID);
-                cmd.Parameters.AddWithValue("atividadeId2", relacaoAtividade.Atividade2.ID);
-                cmd.Parameters.AddWithValue("criterioId", relacaoAtividade.Criterio.ID);
-                cmd.Parameters.AddWithValue("portfolioId", relacaoAtividade.Portfolio.ID);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
-            }
-        }
+
         public List<RelacaoAtividade> ListarPorPortfolio(int portfolioId)
         {
             List<RelacaoAtividade> list = new List<RelacaoAtividade>();
@@ -127,6 +111,21 @@ namespace AHP.Dados
                 bool b = reader.Read();
                 db.Close();
                 return b;
+            }
+        }
+
+        public void ExcluirPorAtividade(RelacaoAtividade relacaoAtividade)
+        {
+            using (var db = BancoDados.getConnection)
+            {
+                string query = "delete from rel_atividade where (atividade_id1 = @atividadeId or " +
+                               "atividade_id2 = @atividadeId) and portfolio_id = @portfolioId";
+                MySqlCommand cmd = new MySqlCommand(query, db);
+                cmd.Parameters.AddWithValue("atividadeId", relacaoAtividade.Atividade1.ID);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoAtividade.Portfolio.ID);
+                db.Open();
+                cmd.ExecuteNonQuery();
+                db.Close();
             }
         }
     }

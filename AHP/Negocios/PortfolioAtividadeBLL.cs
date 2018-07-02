@@ -53,9 +53,9 @@ namespace AHP.Negocios
             raDao.Adicionar(relacaoAtividade);
         }
 
-        public void ExcluirRelacaoAtividadePortfolio(RelacaoAtividade relacaoAtividade)
+        public void ExcluirPorAtividade(RelacaoAtividade relacaoAtividade)
         {
-            raDao.Excluir(relacaoAtividade);
+            raDao.ExcluirPorAtividade(relacaoAtividade);
         }
     }
 }
