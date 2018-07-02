@@ -12,10 +12,9 @@ namespace AHP.Negocios
     {
         public double[,] MatrizCriterios { get; set; }
         public double[,,] MatrizAtividades { get; set; }
-        public List<double> vetEigenCriterios;
-        // public List<List<double>> vetEigenAtividades;
-        public double[,] vetEigenAtividades { get; set; }
-        public List<double> listaRelatorio;
+        private List<double> vetEigenCriterios;
+        private double[,] vetEigenAtividades;
+        public List<double> ListaRelatorio { get; set; }
         private List<Criterio> criterios;
         private List<Atividade> atividades;
         private PortfolioCriterioDAO pcDao;
@@ -35,7 +34,7 @@ namespace AHP.Negocios
             raDao = new RelacaoAtividadeDAO();
             vetEigenCriterios = new List<double>();
             //vetEigenAtividades = new List<List<double>>();
-            listaRelatorio = new List<double>();
+            ListaRelatorio = new List<double>();
             preencherMatrizCriterios();
             preencherListaCriterios();
             preencherMatrizAtividades();
@@ -76,12 +75,14 @@ namespace AHP.Negocios
         {
             for (int i = 0; i < criterios.Count; i++)
             {
-                double soma = 0;
+                double soma = 0, aux = 0;
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     soma += MatrizCriterios[i, j];
+                  //  aux = MatrizCriterios[i, j];
                 }
                 vetEigenCriterios.Add(soma / criterios.Count);
+                //aux = soma / criterios.Count;
             }
         }
 
@@ -156,7 +157,7 @@ namespace AHP.Negocios
                 {
                     produto += vetEigenAtividades[j, i] * vetEigenCriterios[j];
                 }
-                listaRelatorio.Add(produto);
+                ListaRelatorio.Add(produto);
             }
         }
     }
