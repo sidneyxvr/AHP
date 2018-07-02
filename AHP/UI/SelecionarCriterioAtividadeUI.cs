@@ -17,10 +17,10 @@ namespace AHP.UI
         private PortfolioCriterioBLL portfolioCriterioBLL;
         private PortfolioAtividadeBLL portfolioAtividadeBLL;
         private List<CheckBox> listCheckBoxCriterio;
-        List<Tuple<Criterio, bool>> listCriterios;
+        private List<Tuple<Criterio, bool>> listCriterios;
 
         private List<CheckBox> listCheckBoxAtividade;
-        List<Tuple<Atividade, bool>> listAtividades;
+        private List<Tuple<Atividade, bool>> listAtividades;
 
         private int portfolioId;
 
@@ -110,47 +110,28 @@ namespace AHP.UI
             }
             else
             {
-                lista = portfolioCriterioBLL.ListarPorPortfolio(portfolioId);
-                foreach (Criterio c in lista)
+                portfolioCriterioBLL.ExcluirRelacaoCriterioPortfolio(new RelacaoCriterio()
                 {
-                    portfolioCriterioBLL.ExcluirRelacaoCriterioPortfolio(new RelacaoCriterio()
+                    Criterio1 = new Criterio()
                     {
-                        Criterio1 = new Criterio()
-                        {
-                            ID = pc.Criterio.ID
-                        },
-                        Portfolio = new Portfolio()
-                        {
-                            ID = pc.Portfolio.ID
-                        }
-                    });
-                }
-                List<Atividade> list = portfolioAtividadeBLL.ListarPorPortfolio(portfolioId);
-                foreach(Atividade a1 in list)
-                {
-                    foreach (Atividade a2 in list)
+                        ID = pc.Criterio.ID
+                    },
+                    Portfolio = new Portfolio()
                     {
-                        portfolioAtividadeBLL.ExcluirRelacaoAtividadePortfolio(new RelacaoAtividade()
-                        {
-                            Atividade1 = new Atividade()
-                            {
-                                ID = a1.ID
-                            },
-                            Atividade2 = new Atividade()
-                            {
-                                ID = a2.ID
-                            },
-                            Criterio = new Criterio()
-                            {
-                                ID = pc.Criterio.ID
-                            },
-                            Portfolio = new Portfolio()
-                            {
-                                ID = pc.Portfolio.ID
-                            }
-                        });
+                        ID = pc.Portfolio.ID
                     }
-                }
+                });
+                portfolioCriterioBLL.ExcluirPorCriterio(new RelacaoCriterio()
+                {
+                    Criterio1 = new Criterio()
+                    {
+                        ID = pc.Criterio.ID
+                    },
+                    Portfolio = new Portfolio()
+                    {
+                        ID = pc.Portfolio.ID
+                    }
+                });
                 portfolioCriterioBLL.Excluir(pc);
             }
         }
@@ -204,32 +185,17 @@ namespace AHP.UI
             }
             else
             {
-                listA = portfolioAtividadeBLL.ListarPorPortfolio(portfolioId);
-                foreach (Criterio c in listC)
+                portfolioAtividadeBLL.ExcluirPorAtividade(new RelacaoAtividade()
                 {
-                    foreach (Atividade a in listA)
+                    Atividade1 = new Atividade()
                     {
-                        portfolioAtividadeBLL.ExcluirRelacaoAtividadePortfolio(new RelacaoAtividade()
-                        {
-                            Atividade1 = new Atividade()
-                            {
-                                ID = pa.Atividade.ID
-                            },
-                            Atividade2 = new Atividade()
-                            {
-                                ID = a.ID
-                            },
-                            Criterio = new Criterio()
-                            {
-                                ID = c.ID
-                            },
-                            Portfolio = new Portfolio()
-                            {
-                                ID = pa.Portfolio.ID
-                            }
-                        });
+                        ID = pa.Atividade.ID
+                    },
+                    Portfolio = new Portfolio()
+                    {
+                        ID = pa.Portfolio.ID
                     }
-                }
+                });
                 portfolioAtividadeBLL.Excluir(pa);
             }
         }

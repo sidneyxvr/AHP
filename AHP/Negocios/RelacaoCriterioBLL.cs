@@ -43,5 +43,7 @@ namespace AHP.Negocios
         {
             return rcDao.Verificar(relacaoCriterio);
         }
+
+        
     }
 }

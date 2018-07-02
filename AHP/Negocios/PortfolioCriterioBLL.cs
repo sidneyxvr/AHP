@@ -58,5 +58,9 @@ namespace AHP.Negocios
             rcDao.Excluir(relacaoCriterio);
         }
 
+        public void ExcluirPorCriterio(RelacaoCriterio relacaoCriterio)
+        {
+            rcDao.ExcluirPorCriterio(relacaoCriterio);
+        }
     }
 }
