@@ -128,5 +128,20 @@ namespace AHP.Dados
                 db.Close();
             }
         }
+
+        public void ExcluirPorCriterio(RelacaoAtividade relacaoAtividade)
+        {
+            using (var db = BancoDados.getConnection)
+            {
+                string query = "delete from rel_atividade where criterio_id = @criterioId " +
+                               "and portfolio_id = @portfolioId";
+                MySqlCommand cmd = new MySqlCommand(query, db);
+                cmd.Parameters.AddWithValue("criterioId", relacaoAtividade.Criterio.ID);
+                cmd.Parameters.AddWithValue("portfolioId", relacaoAtividade.Portfolio.ID);
+                db.Open();
+                cmd.ExecuteNonQuery();
+                db.Close();
+            }
+        }
     }
 }

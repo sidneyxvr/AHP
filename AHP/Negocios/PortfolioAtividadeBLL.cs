@@ -57,5 +57,10 @@ namespace AHP.Negocios
         {
             raDao.ExcluirPorAtividade(relacaoAtividade);
         }
+
+        public void ExcluirPorCriterio(RelacaoAtividade relacaoAtividade)
+        {
+            raDao.ExcluirPorCriterio(relacaoAtividade);
+        }
     }
 }

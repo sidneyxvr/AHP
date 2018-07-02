@@ -110,7 +110,7 @@ namespace AHP.UI
             }
             else
             {
-                portfolioCriterioBLL.ExcluirRelacaoCriterioPortfolio(new RelacaoCriterio()
+                portfolioCriterioBLL.ExcluirPorCriterio(new RelacaoCriterio()
                 {
                     Criterio1 = new Criterio()
                     {
@@ -121,9 +121,9 @@ namespace AHP.UI
                         ID = pc.Portfolio.ID
                     }
                 });
-                portfolioCriterioBLL.ExcluirPorCriterio(new RelacaoCriterio()
+                portfolioAtividadeBLL.ExcluirPorCriterio(new RelacaoAtividade()
                 {
-                    Criterio1 = new Criterio()
+                    Criterio = new Criterio()
                     {
                         ID = pc.Criterio.ID
                     },
