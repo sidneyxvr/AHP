@@ -112,11 +112,11 @@ namespace AHP.UI
                     listTextBox[i][j].Location = new Point((i * 60), (j * 40));
                     if (list[i] is Criterio)
                     { 
-                        listTextBox[i][j].Leave += new EventHandler(eventCriterio);
+                        listTextBox[i][j].LostFocus += new EventHandler(eventCriterio);
                     }
                     else
                     {
-                        listTextBox[i][j].Leave += new EventHandler(eventAtividade);
+                        listTextBox[i][j].LostFocus += new EventHandler(eventAtividade);
                     }
                     
                     panel.Controls.Add(listTextBox[i][j]);
@@ -159,6 +159,7 @@ namespace AHP.UI
 
         private void RelacionarCriterioAtividadeUI_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             this.Dispose();
         }
 

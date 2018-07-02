@@ -25,6 +25,7 @@ namespace AHP.Dados
                 db.Close();
             }
         }
+
         public void Excluir(RelacaoCriterio relacaoCriterio)
         {
             using (var db = BancoDados.getConnection)
@@ -161,7 +162,7 @@ namespace AHP.Dados
         {
             using (var db = BancoDados.getConnection)
             {
-                string query = "delete from rel_atividade where portfolio_id = @portfolioId and " +
+                string query = "delete from rel_criterio where portfolio_id = @portfolioId and " +
                                 "(criterio_id1 = @criterioId or criterio_id2 = @criterioId)";
                 MySqlCommand cmd = new MySqlCommand(query, db);
                 cmd.Parameters.AddWithValue("criterioId", relacaoCriterio.Criterio1.ID);
