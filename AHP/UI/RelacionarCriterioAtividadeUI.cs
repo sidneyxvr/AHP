@@ -193,7 +193,7 @@ namespace AHP.UI
         public void eventCriterio(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9 || t.Text.Trim() == "")
+            if (t.Text.Trim() == "" || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
@@ -243,7 +243,7 @@ namespace AHP.UI
         public void eventAtividade(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9 || t.Text.Trim() == "")
+            if (t.Text.Trim() == "" || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
