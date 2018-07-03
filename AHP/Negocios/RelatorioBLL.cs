@@ -38,10 +38,12 @@ namespace AHP.Negocios
             vetEigenCriterios = new List<double>();
             listaSomaColunasCriterios = new List<double>();
             listaSomaColunasAtividades = new List<List<double>>();
-            //vetEigenAtividades = new List<List<double>>();
+            criterios = pcDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
+            atividades = paDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
+            // vetEigenAtividades = new ;
             ListaRelatorio = new List<double>();
-            preencherMatrizCriterios();
-            preencherVetEngelsCriterios();
+            //preencherMatrizCriterios();
+            //preencherVetEngelsCriterios();
             preencherMatrizAtividades();
             preencherVetEngelsAtividades();
             gerarRelatorio();
@@ -49,7 +51,7 @@ namespace AHP.Negocios
 
         public void preencherMatrizCriterios()
         {
-            criterios = pcDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
+            
             relacaoCriterios = rcDao.ListarPorPortfolio(portfolioId);
             MatrizCriterios = new double[criterios.Count, criterios.Count];
             foreach (var obj in relacaoCriterios)
@@ -85,7 +87,7 @@ namespace AHP.Negocios
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     soma += MatrizCriterios[i, j];
-                    aux = MatrizCriterios[i, j];
+                  //  aux = MatrizCriterios[i, j];
                 }
                 vetEigenCriterios.Add(soma / criterios.Count);
                 //aux = soma / criterios.Count;
@@ -110,7 +112,7 @@ namespace AHP.Negocios
 
         public void preencherMatrizAtividades()
         {
-            atividades = paDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
+            
             relacaoAtividades = raDao.ListarPorPortfolio(portfolioId);
             MatrizAtividades = new double[atividades.Count, atividades.Count, criterios.Count];
             foreach (var obj in relacaoAtividades)
@@ -127,7 +129,7 @@ namespace AHP.Negocios
                 List<double> listaSomaColunas = new List<double>();
                 for (int j = 0; j < atividades.Count; j++)
                 {
-                    double somaColuna = 0;
+                    double somaColuna = 0, aux = 0;
                     for (int k = 0; k < atividades.Count; k++)
                     {
                         somaColuna += MatrizAtividades[j, k, i];
@@ -136,6 +138,8 @@ namespace AHP.Negocios
                     for (int k = 0; k < atividades.Count; k++)
                     {
                         MatrizAtividades[j, k, i] /= somaColuna;
+                        //teste aqui
+                        aux = MatrizAtividades[j, k, i];
                     }
                 }
                 listaSomaColunasAtividades.Add(listaSomaColunas);
@@ -157,17 +161,18 @@ namespace AHP.Negocios
                         soma += MatrizAtividades[j, k, i];
                     }
                     vetEigenAtividades[i, j] = soma / atividades.Count;
+                    double aux = soma / atividades.Count;
                     // listaAtividades.Add(soma / atividades.Count);
                 }
                 //vetEigenAtividades[j,k];
-                for (int j = 0; j < atividades.Count; j++)
+              /*  for (int j = 0; j < atividades.Count; j++)
                 {
                     double soma = 0;
                     for (int k = 0; k < atividades.Count; k++)
                     {
                         soma += MatrizAtividades[j, k, i];
                     }
-                }
+                }*/
             }
            // bool consistecia = calcularConsistenciaAtividades();
         }

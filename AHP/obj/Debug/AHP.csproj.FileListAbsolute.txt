@@ -28,7 +28,6 @@ C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csproj.GenerateResource.Cache
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csproj.CoreCompileInputs.cache
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.exe
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.pdb
-C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csprojResolveAssemblyReference.cache
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.exe.config
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.exe
 C:\Users\sidne\Desktop\Workspace\AHP\AHP\bin\Debug\AHP.pdb
@@ -79,3 +78,5 @@ C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.AtividadeUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.CriterioUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioAtividadeUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.SelecionarCriterioAtividadeUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csprojAssemblyReference.cache
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csproj.CopyComplete
