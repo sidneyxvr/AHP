@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -77,8 +78,21 @@ namespace AHP.UI
                     listLabelHorizontal.Last().Text = atividades.ElementAt(i).Descricao;
                 }
                 listLabelHorizontal.Last().Location = new Point(i * 60, 10);
+                listLabelHorizontal.Last().MouseHover += new EventHandler(over);
+                listLabelHorizontal.Last().MouseLeave += new EventHandler(leave);
                 panel.Controls.Add(listLabelHorizontal.Last());
             }
+        }
+
+        public void over(Object sender, EventArgs e)
+        {
+            labelResult.Text = ((Label)sender).Text;
+            labelResult.Visible = true;
+        }
+
+        public void leave(Object sender, EventArgs e)
+        {
+            labelResult.Visible = false;
         }
 
         public void alocarLabelsVertical<T>(ref List<T> list, ref List<Label> listLabelVertical, ref Panel panel)
@@ -96,6 +110,8 @@ namespace AHP.UI
                     listLabelVertical.Last().Text = atividades.ElementAt(i).Descricao;
                 }
                 listLabelVertical.Last().Location = new Point(10, i * 40);
+                listLabelVertical.Last().MouseHover += new EventHandler(over);
+                listLabelVertical.Last().MouseLeave += new EventHandler(leave);
                 panel.Controls.Add(listLabelVertical.Last());
             }
         }
@@ -118,7 +134,6 @@ namespace AHP.UI
                     {
                         listTextBox[i][j].LostFocus += new EventHandler(eventAtividade);
                     }
-                    
                     panel.Controls.Add(listTextBox[i][j]);
                 }
             }
@@ -193,12 +208,13 @@ namespace AHP.UI
         public void eventCriterio(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (t.Text.Trim() == "" || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
+            if (t.Text.Trim() == "" || !isDoubleOrInterger(t.Text) || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
                 return;
             }
+            
             Tuple<int, int> point = getPosition(ref criterios, ref t, ref listTextBoxCriterio);
 
             RelacaoCriterio r = new RelacaoCriterio()
@@ -243,7 +259,8 @@ namespace AHP.UI
         public void eventAtividade(Object sender, EventArgs e)
         {
             TextBox t = ((TextBox)sender);
-            if (t.Text.Trim() == "" || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
+            
+            if (t.Text.Trim() == "" || !isDoubleOrInterger(t.Text) || Convert.ToDouble(t.Text) < 0 || Convert.ToDouble(t.Text) > 9)
             {
                 MessageBox.Show("Valor Inválido");
                 t.Focus();
@@ -314,6 +331,39 @@ namespace AHP.UI
         {
             this.tabRelacaoCriterioAtividade.Location = new Point((this.Width / 2) - (tabRelacaoCriterioAtividade.Width / 2),
                                                                   (this.Height / 2) - (tabRelacaoCriterioAtividade.Height / 2));
+        }
+
+        private bool isNumber(string num)
+        {
+            if (num.Count(i => i == ',') == 1)
+            {
+                string[] list = num.Split(',');
+                if(list.Length > 1)
+                {
+                    if (list[0].Length == 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool isDoubleOrInterger(string num)
+        {
+            double _num;
+            bool isDouble = Double.TryParse(num, out _num);
+            if(isDouble)
+            {
+                return true;
+            }
+            int __num;
+            bool isInteger = Int32.TryParse(num, out __num);
+            if(isInteger)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
