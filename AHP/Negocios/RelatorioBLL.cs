@@ -12,6 +12,9 @@ namespace AHP.Negocios
     {
         public double[,] MatrizCriterios { get; set; }
         public double[,,] MatrizAtividades { get; set; }
+        private double[] indiceConsistenciaAleatoria = {0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49};
+        private List<double> listaSomaColunasCriterios;
+        private List<List<double>> listaSomaColunasAtividades;
         private List<double> vetEigenCriterios;
         private double[,] vetEigenAtividades;
         public List<double> ListaRelatorio { get; set; }
@@ -33,12 +36,14 @@ namespace AHP.Negocios
             rcDao = new RelacaoCriterioDAO();
             raDao = new RelacaoAtividadeDAO();
             vetEigenCriterios = new List<double>();
+            listaSomaColunasCriterios = new List<double>();
+            listaSomaColunasAtividades = new List<List<double>>();
             //vetEigenAtividades = new List<List<double>>();
             ListaRelatorio = new List<double>();
             preencherMatrizCriterios();
-            preencherListaCriterios();
+            preencherVetEngelsCriterios();
             preencherMatrizAtividades();
-            preencherListaAtividades();
+            preencherVetEngelsAtividades();
             gerarRelatorio();
         }
 
@@ -58,20 +63,21 @@ namespace AHP.Negocios
             for (int i = 0; i < criterios.Count; i++)
             {
                 double somaColuna = 0;
-                int j;
-                for (j = 0; j < criterios.Count; j++)
+                for (int j = 0; j < criterios.Count; j++)
                 {
                     somaColuna += MatrizCriterios[j, i];
+                    //somaColuna += 0;
                 }
-
-                for (j = 0; j < criterios.Count; j++)
+                listaSomaColunasCriterios.Add(somaColuna);
+                for (int j = 0; j < criterios.Count; j++)
                 {
                     MatrizCriterios[j, i] /= somaColuna;
+                   // double k = MatrizCriterios[j, i];
                 }
             }
         }
 
-        public void preencherListaCriterios()
+        public void preencherVetEngelsCriterios()
         {
             for (int i = 0; i < criterios.Count; i++)
             {
@@ -79,11 +85,27 @@ namespace AHP.Negocios
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     soma += MatrizCriterios[i, j];
-                  //  aux = MatrizCriterios[i, j];
+                    aux = MatrizCriterios[i, j];
                 }
                 vetEigenCriterios.Add(soma / criterios.Count);
                 //aux = soma / criterios.Count;
             }
+            bool consistecia = calcularConsistenciaCriterios();
+        }
+
+        public bool calcularConsistenciaCriterios()
+        {
+            double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
+            for(int i = 0; i < listaSomaColunasCriterios.Count; i++)
+            {
+                lambda += vetEigenCriterios[i] * listaSomaColunasCriterios[i];
+                //aux1 = vetEigenCriterios[i];
+                //aux2 = listaSomaColunasCriterios[i];
+            }
+            indiceConsistencia = (lambda - listaSomaColunasCriterios.Count) / (listaSomaColunasCriterios.Count - 1);
+            //aux1 = indiceConsistencia;
+            taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasCriterios.Count - 1];
+            return taxaConsistencia < 0.1 ? true : false;
         }
 
         public void preencherMatrizAtividades()
@@ -102,6 +124,7 @@ namespace AHP.Negocios
 
             for (int i = 0; i < criterios.Count; i++)
             {
+                List<double> listaSomaColunas = new List<double>();
                 for (int j = 0; j < atividades.Count; j++)
                 {
                     double somaColuna = 0;
@@ -109,16 +132,17 @@ namespace AHP.Negocios
                     {
                         somaColuna += MatrizAtividades[j, k, i];
                     }
-
+                    listaSomaColunas.Add(somaColuna);
                     for (int k = 0; k < atividades.Count; k++)
                     {
                         MatrizAtividades[j, k, i] /= somaColuna;
                     }
                 }
+                listaSomaColunasAtividades.Add(listaSomaColunas);
             }
         }
 
-        public void preencherListaAtividades()
+        public void preencherVetEngelsAtividades()
         {
             vetEigenAtividades = new double[criterios.Count, atividades.Count];
             for (int i = 0; i < criterios.Count; i++)
@@ -145,11 +169,26 @@ namespace AHP.Negocios
                     }
                 }
             }
+           // bool consistecia = calcularConsistenciaAtividades();
         }
+        /*
+        public bool calcularConsistenciaAtividades()
+        {
+            double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
+            for(int i = 0; i < listaSomaColunasCriterios.Count; i++)
+            {
+                lambda += vetEigenCriterios[i] * listaSomaColunasCriterios[i];
+                //aux1 = vetEigenCriterios[i];
+                //aux2 = listaSomaColunasCriterios[i];
+            }
+            indiceConsistencia = (lambda - listaSomaColunasCriterios.Count) / (listaSomaColunasCriterios.Count - 1);
+            //aux1 = indiceConsistencia;
+            taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasCriterios.Count - 1];
+            return taxaConsistencia < 0.1 ? true : false;
+        }*/
 
         public void gerarRelatorio()
         {
-            // int j = 0;
             for (int i = 0; i < atividades.Count; i++)
             {
                 double produto = 0;
