@@ -172,6 +172,9 @@
     <EmbeddedResource Include="UI\RelacionarCriterioAtividadeUI.resx">
       <DependentUpon>RelacionarCriterioAtividadeUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\RelatorioUI.resx">
+      <DependentUpon>RelatorioUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\SelecionarCriterioAtividadeUI.resx">
       <DependentUpon>SelecionarCriterioAtividadeUI.cs</DependentUpon>
     </EmbeddedResource>

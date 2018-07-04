@@ -79,3 +79,5 @@ C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.AtividadeUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.CriterioUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RelacionarCriterioAtividadeUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.SelecionarCriterioAtividadeUI.resources
+C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.RelatorioUI.resources
+C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RelatorioUI.resources

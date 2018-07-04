@@ -33,8 +33,18 @@ namespace AHP.UI
 
         private void AdicionarAtividadeUI_SizeChanged(object sender, EventArgs e)
         {
+            centralizar();
+        }
+
+        private void centralizar()
+        {
             this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2),
                                                 (this.Height / 2) - (panelMain.Height / 2));
+        }
+
+        private void AdicionarAtividadeUI_Load(object sender, EventArgs e)
+        {
+            centralizar();
         }
     }
 }
