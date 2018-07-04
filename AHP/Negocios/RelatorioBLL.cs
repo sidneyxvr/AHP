@@ -40,10 +40,9 @@ namespace AHP.Negocios
             listaSomaColunasAtividades = new List<List<double>>();
             criterios = pcDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
             atividades = paDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
-            // vetEigenAtividades = new ;
             ListaRelatorio = new List<double>();
-            //preencherMatrizCriterios();
-            //preencherVetEngelsCriterios();
+            preencherMatrizCriterios();
+            preencherVetEngelsCriterios();
             preencherMatrizAtividades();
             preencherVetEngelsAtividades();
             gerarRelatorio();
@@ -92,7 +91,11 @@ namespace AHP.Negocios
                 vetEigenCriterios.Add(soma / criterios.Count);
                 //aux = soma / criterios.Count;
             }
-            bool consistecia = calcularConsistenciaCriterios();
+            bool consistecia;
+            if (listaSomaColunasCriterios.Count < 10 && listaSomaColunasCriterios.Count > 0)
+            {
+                consistecia = calcularConsistenciaCriterios();
+            }
         }
 
         public bool calcularConsistenciaCriterios()
@@ -106,6 +109,7 @@ namespace AHP.Negocios
             }
             indiceConsistencia = (lambda - listaSomaColunasCriterios.Count) / (listaSomaColunasCriterios.Count - 1);
             //aux1 = indiceConsistencia;
+            aux1 = listaSomaColunasCriterios.Count;
             taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasCriterios.Count - 1];
             return taxaConsistencia < 0.1 ? true : false;
         }
@@ -142,7 +146,7 @@ namespace AHP.Negocios
                         //aux2 = somaColuna;
                         MatrizAtividades[k, j, i] /= somaColuna;
                         //aux2 = MatrizAtividades[k, j, i];
-                        //teste aqui
+                        //teste começa aqui
                     }
                 }
                 listaSomaColunasAtividades.Add(listaSomaColunas);
@@ -155,29 +159,24 @@ namespace AHP.Negocios
             for (int i = 0; i < criterios.Count; i++)
             {
                 //   List<double> listaAtividades = new List<double>();
-                //int j;
                 for (int j = 0; j < atividades.Count; j++)
                 {
-                    double soma = 0;
+                    double soma = 0, aux = 0;
                     for (int k = 0; k < atividades.Count; k++)
                     {
                         soma += MatrizAtividades[j, k, i];
+                        aux = MatrizAtividades[j, k, i];
                     }
                     vetEigenAtividades[i, j] = soma / atividades.Count;
-                    double aux = soma / atividades.Count;
+                    aux = soma / atividades.Count;
                     // listaAtividades.Add(soma / atividades.Count);
                 }
-                //vetEigenAtividades[j,k];
-                /*  for (int j = 0; j < atividades.Count; j++)
-                  {
-                      double soma = 0;
-                      for (int k = 0; k < atividades.Count; k++)
-                      {
-                          soma += MatrizAtividades[j, k, i];
-                      }
-                  }*/
             }
-            bool consistecia = calcularConsistenciaAtividades();
+            bool consistecia;
+            if (listaSomaColunasAtividades.Count < 10 && listaSomaColunasAtividades.Count > 0)
+            {
+                consistecia = calcularConsistenciaAtividades();
+            }
         }
 
         public bool calcularConsistenciaAtividades()
@@ -189,8 +188,8 @@ namespace AHP.Negocios
                 for (int j = 0; j < listaSomaColunasAtividades[i].Count; j++)
                 {
                     lambda += vetEigenAtividades[i, j] * listaSomaColunasAtividades[i][j];
-                    //aux1 = vetEigenAtividades[i,j];
-                    //aux2 = listaSomaColunasAtividades[i][j];
+                    aux1 = vetEigenAtividades[i, j];
+                    aux2 = listaSomaColunasAtividades[i][j];
                 }
                 indiceConsistencia = (lambda - listaSomaColunasAtividades[i].Count) / (listaSomaColunasAtividades[i].Count - 1);
                 //aux1 = indiceConsistencia;
@@ -202,19 +201,21 @@ namespace AHP.Negocios
 
         public void gerarRelatorio()
         {
-            double[] pesoCriterio = { 0.0122, 0.0048, 0.0514, 0.0357, 0.1785, 0.1785, 0.2988, 0.0331, 0.1284, 0.0219, 0.0056, 0.0510 };
+            //double[] pesoCriterio = { 0.0122, 0.0219, 0.0056, 0.0510, 0.0048, 0.0514, 0.0357, 0.1785, 0.1785, 0.2988, 0.0331, 0.1284 };
             for (int i = 0; i < atividades.Count; i++)
             {
                 double produto = 0, aux1 = 0, aux2 = 0;
                 for (int j = 0; j < criterios.Count; j++)
                 {
-                    aux1 = vetEigenAtividades[j, i];
-                    aux2 = pesoCriterio[j];
-                    produto += vetEigenAtividades[j, i] * pesoCriterio[j];
-                    aux1 = vetEigenAtividades[j, i] * pesoCriterio[j];
-                    //vetEigenCriterios[j];
+                    //aux1 = vetEigenAtividades[j, i];
+                    //aux2 = vetEigenCriterios[j];
+                    //pesoCriterio[j];
+                    produto += vetEigenAtividades[j, i] * vetEigenCriterios[j];
+                    //pesoCriterio[j];
+                    //aux1 = vetEigenAtividades[j, i] * vetEigenCriterios[j];
+                    //pesoCriterio[j];
                 }
-                aux1 = produto;
+                //aux1 = produto;
                 ListaRelatorio.Add(produto);
             }
         }
