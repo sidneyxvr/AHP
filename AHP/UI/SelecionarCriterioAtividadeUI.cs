@@ -36,6 +36,7 @@ namespace AHP.UI
 
         private void RelacionarCriterioUI_Load(object sender, EventArgs e)
         {
+            centralizar();
             preencherCheckCriterio();
             preencherCheckAtividade();
         }
@@ -241,8 +242,13 @@ namespace AHP.UI
 
         private void SelecionarCriterioAtividadeUI_SizeChanged(object sender, EventArgs e)
         {
-            this.tabCriterio.Location = new Point((this.Width / 2) - (tabCriterio.Width / 2),
-                                                (this.Height / 2) - (tabCriterio.Height / 2));
+            centralizar();
+        }
+
+        public void centralizar()
+        {
+            this.tabCriterio.Location = new Point((this.Width / 2) - (tabCriterio.Width / 2) - 10,
+                                                (this.Height / 2) - (tabCriterio.Height / 2) - 20);
         }
     }
 }

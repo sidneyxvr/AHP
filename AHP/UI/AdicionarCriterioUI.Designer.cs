@@ -36,10 +36,9 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(166, 59);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdicionar.Location = new System.Drawing.Point(150, 50);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(100, 28);
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 5;
             this.btnAdicionar.Text = "Salvar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -47,31 +46,33 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(16, 19);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescricao.Location = new System.Drawing.Point(25, 20);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(250, 22);
+            this.txtDescricao.Size = new System.Drawing.Size(200, 20);
             this.txtDescricao.TabIndex = 4;
             // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.txtDescricao);
             this.panelMain.Controls.Add(this.btnAdicionar);
-            this.panelMain.Location = new System.Drawing.Point(27, 24);
+            this.panelMain.Location = new System.Drawing.Point(20, 20);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(278, 117);
+            this.panelMain.Size = new System.Drawing.Size(250, 100);
             this.panelMain.TabIndex = 6;
             // 
             // AdicionarCriterioUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 170);
+            this.ClientSize = new System.Drawing.Size(284, 161);
             this.Controls.Add(this.panelMain);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdicionarCriterioUI";
-            this.Text = "AdicionarCriterioUI";
+            this.Text = "Adicionar Critério";
+            this.Load += new System.EventHandler(this.AdicionarCriterioUI_Load);
             this.SizeChanged += new System.EventHandler(this.AdicionarCriterioUI_SizeChanged);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
