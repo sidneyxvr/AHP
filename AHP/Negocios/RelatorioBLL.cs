@@ -12,7 +12,7 @@ namespace AHP.Negocios
     {
         public double[,] MatrizCriterios { get; set; }
         public double[,,] MatrizAtividades { get; set; }
-        private double[] indiceConsistenciaAleatoria = {0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49};
+        private double[] indiceConsistenciaAleatoria = { 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49 };
         private List<double> listaSomaColunasCriterios;
         private List<List<double>> listaSomaColunasAtividades;
         private List<double> vetEigenCriterios;
@@ -51,7 +51,7 @@ namespace AHP.Negocios
 
         public void preencherMatrizCriterios()
         {
-            
+
             relacaoCriterios = rcDao.ListarPorPortfolio(portfolioId);
             MatrizCriterios = new double[criterios.Count, criterios.Count];
             foreach (var obj in relacaoCriterios)
@@ -74,7 +74,7 @@ namespace AHP.Negocios
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     MatrizCriterios[j, i] /= somaColuna;
-                   // double k = MatrizCriterios[j, i];
+                    // double k = MatrizCriterios[j, i];
                 }
             }
         }
@@ -87,7 +87,7 @@ namespace AHP.Negocios
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     soma += MatrizCriterios[i, j];
-                  //  aux = MatrizCriterios[i, j];
+                    //  aux = MatrizCriterios[i, j];
                 }
                 vetEigenCriterios.Add(soma / criterios.Count);
                 //aux = soma / criterios.Count;
@@ -98,7 +98,7 @@ namespace AHP.Negocios
         public bool calcularConsistenciaCriterios()
         {
             double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
-            for(int i = 0; i < listaSomaColunasCriterios.Count; i++)
+            for (int i = 0; i < listaSomaColunasCriterios.Count; i++)
             {
                 lambda += vetEigenCriterios[i] * listaSomaColunasCriterios[i];
                 //aux1 = vetEigenCriterios[i];
@@ -112,7 +112,7 @@ namespace AHP.Negocios
 
         public void preencherMatrizAtividades()
         {
-            
+
             relacaoAtividades = raDao.ListarPorPortfolio(portfolioId);
             MatrizAtividades = new double[atividades.Count, atividades.Count, criterios.Count];
             foreach (var obj in relacaoAtividades)
@@ -129,17 +129,20 @@ namespace AHP.Negocios
                 List<double> listaSomaColunas = new List<double>();
                 for (int j = 0; j < atividades.Count; j++)
                 {
-                    double somaColuna = 0, aux = 0;
+                    double somaColuna = 0, aux1 = 0, aux2 = 0;
                     for (int k = 0; k < atividades.Count; k++)
                     {
-                        somaColuna += MatrizAtividades[j, k, i];
+                        somaColuna += MatrizAtividades[k, j, i];
+                        //aux1 = MatrizAtividades[k, j, i];
                     }
                     listaSomaColunas.Add(somaColuna);
                     for (int k = 0; k < atividades.Count; k++)
                     {
-                        MatrizAtividades[j, k, i] /= somaColuna;
+                        //aux1 = MatrizAtividades[k, j, i];
+                        //aux2 = somaColuna;
+                        MatrizAtividades[k, j, i] /= somaColuna;
+                        //aux2 = MatrizAtividades[k, j, i];
                         //teste aqui
-                        aux = MatrizAtividades[j, k, i];
                     }
                 }
                 listaSomaColunasAtividades.Add(listaSomaColunas);
@@ -165,42 +168,53 @@ namespace AHP.Negocios
                     // listaAtividades.Add(soma / atividades.Count);
                 }
                 //vetEigenAtividades[j,k];
-              /*  for (int j = 0; j < atividades.Count; j++)
-                {
-                    double soma = 0;
-                    for (int k = 0; k < atividades.Count; k++)
-                    {
-                        soma += MatrizAtividades[j, k, i];
-                    }
-                }*/
+                /*  for (int j = 0; j < atividades.Count; j++)
+                  {
+                      double soma = 0;
+                      for (int k = 0; k < atividades.Count; k++)
+                      {
+                          soma += MatrizAtividades[j, k, i];
+                      }
+                  }*/
             }
-           // bool consistecia = calcularConsistenciaAtividades();
+            bool consistecia = calcularConsistenciaAtividades();
         }
-        /*
+
         public bool calcularConsistenciaAtividades()
         {
             double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
-            for(int i = 0; i < listaSomaColunasCriterios.Count; i++)
+            for (int i = 0; i < listaSomaColunasAtividades.Count; i++)
             {
-                lambda += vetEigenCriterios[i] * listaSomaColunasCriterios[i];
-                //aux1 = vetEigenCriterios[i];
-                //aux2 = listaSomaColunasCriterios[i];
+                lambda = 0;
+                for (int j = 0; j < listaSomaColunasAtividades[i].Count; j++)
+                {
+                    lambda += vetEigenAtividades[i, j] * listaSomaColunasAtividades[i][j];
+                    //aux1 = vetEigenAtividades[i,j];
+                    //aux2 = listaSomaColunasAtividades[i][j];
+                }
+                indiceConsistencia = (lambda - listaSomaColunasAtividades[i].Count) / (listaSomaColunasAtividades[i].Count - 1);
+                //aux1 = indiceConsistencia;
+                taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasAtividades[i].Count - 1];
+                if (taxaConsistencia >= 0.1) return false;
             }
-            indiceConsistencia = (lambda - listaSomaColunasCriterios.Count) / (listaSomaColunasCriterios.Count - 1);
-            //aux1 = indiceConsistencia;
-            taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasCriterios.Count - 1];
-            return taxaConsistencia < 0.1 ? true : false;
-        }*/
+            return true;
+        }
 
         public void gerarRelatorio()
         {
+            double[] pesoCriterio = { 0.0122, 0.0048, 0.0514, 0.0357, 0.1785, 0.1785, 0.2988, 0.0331, 0.1284, 0.0219, 0.0056, 0.0510 };
             for (int i = 0; i < atividades.Count; i++)
             {
-                double produto = 0;
+                double produto = 0, aux1 = 0, aux2 = 0;
                 for (int j = 0; j < criterios.Count; j++)
                 {
-                    produto += vetEigenAtividades[j, i] * vetEigenCriterios[j];
+                    aux1 = vetEigenAtividades[j, i];
+                    aux2 = pesoCriterio[j];
+                    produto += vetEigenAtividades[j, i] * pesoCriterio[j];
+                    aux1 = vetEigenAtividades[j, i] * pesoCriterio[j];
+                    //vetEigenCriterios[j];
                 }
+                aux1 = produto;
                 ListaRelatorio.Add(produto);
             }
         }
