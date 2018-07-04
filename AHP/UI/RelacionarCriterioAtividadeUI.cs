@@ -51,6 +51,7 @@ namespace AHP.UI
 
         private void RelacionarCriterioAtividade_Load(object sender, EventArgs e)
         {
+            centralizar();
             //====================================TAB_CRITERIO=====================================
             alocarLabelsHorizontal(ref criterios, ref listLabelHorizontalCriterio, ref panelCriterioHorizontal);
             alocarLabelsVertical(ref criterios, ref listLabelVerticalCriterio, ref panelCriterioVertical);
@@ -329,8 +330,14 @@ namespace AHP.UI
 
         private void RelacionarCriterioAtividadeUI_SizeChanged(object sender, EventArgs e)
         {
-            this.tabRelacaoCriterioAtividade.Location = new Point((this.Width / 2) - (tabRelacaoCriterioAtividade.Width / 2),
-                                                                  (this.Height / 2) - (tabRelacaoCriterioAtividade.Height / 2));
+            centralizar();
+        }
+
+        public void centralizar()
+        {
+            this.tabRelacaoCriterioAtividade.Location = new Point((this.Width / 2) - (tabRelacaoCriterioAtividade.Width / 2) - 10,
+                                                                  (this.Height / 2) - (tabRelacaoCriterioAtividade.Height / 2) - 20);
+            labelResult.Location = new Point(tabRelacaoCriterioAtividade.Location.X, tabRelacaoCriterioAtividade.Location.Y + tabRelacaoCriterioAtividade.Height + 5);
         }
 
         private bool isNumber(string num)

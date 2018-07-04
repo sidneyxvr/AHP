@@ -22,6 +22,7 @@ namespace AHP.UI
         }
         private void PortfolioUI_Load(object sender, EventArgs e)
         {
+            centralizar();
             carregarLista();
         }
 
@@ -33,7 +34,7 @@ namespace AHP.UI
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < grid.SelectedRows.Count; i++)
+            for (int i = 0; i < grid.SelectedRows.Count; i++)
             {
                 DialogResult dialogResult = MessageBox.Show("Sure?", "Excluir portfólio", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -77,7 +78,7 @@ namespace AHP.UI
 
         private void btnRelacionar_Click(object sender, EventArgs e)
         {
-            if(grid.SelectedRows.Count == 0)
+            if (grid.SelectedRows.Count == 0)
             {
                 return;
             }
@@ -107,7 +108,12 @@ namespace AHP.UI
 
         private void PortfolioUI_SizeChanged(object sender, EventArgs e)
         {
-            this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2), 
+            centralizar();
+        }
+
+        public void centralizar()
+        {
+            this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2),
                                                 (this.Height / 2) - (panelMain.Height / 2));
         }
     }
