@@ -17,7 +17,7 @@ namespace AHP.Negocios
         private List<List<double>> listaSomaColunasAtividades;
         private List<double> vetEigenCriterios;
         private double[,] vetEigenAtividades;
-        public List<double> ListaRelatorio { get; set; }
+        public List<Tuple<string, double>> ListaRelatorio { get; set; }
         private List<Criterio> criterios;
         private List<Atividade> atividades;
         private PortfolioCriterioDAO pcDao;
@@ -40,7 +40,7 @@ namespace AHP.Negocios
             listaSomaColunasAtividades = new List<List<double>>();
             criterios = pcDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
             atividades = paDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
-            ListaRelatorio = new List<double>();
+            ListaRelatorio = new List<Tuple<string, double>>();
             preencherMatrizCriterios();
             preencherVetEngelsCriterios();
             preencherMatrizAtividades();
@@ -216,8 +216,9 @@ namespace AHP.Negocios
                     //pesoCriterio[j];
                 }
                 //aux1 = produto;
-                ListaRelatorio.Add(produto);
+                ListaRelatorio.Add(new Tuple<string, double>(atividades[i].Descricao, produto));
             }
         }
+
     }
 }
