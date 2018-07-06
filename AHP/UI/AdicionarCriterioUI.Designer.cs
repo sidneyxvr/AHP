@@ -31,6 +31,7 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,13 +54,23 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.label1);
             this.panelMain.Controls.Add(this.txtDescricao);
             this.panelMain.Controls.Add(this.btnAdicionar);
             this.panelMain.Location = new System.Drawing.Point(20, 20);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(250, 100);
             this.panelMain.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Nome do Critério";
             // 
             // AdicionarCriterioUI
             // 
@@ -67,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 161);
             this.Controls.Add(this.panelMain);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdicionarCriterioUI";
@@ -85,5 +96,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Label label1;
     }
 }

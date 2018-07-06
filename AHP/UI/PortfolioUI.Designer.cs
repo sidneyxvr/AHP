@@ -38,9 +38,14 @@
             this.btnRelacionar = new System.Windows.Forms.Button();
             this.btnGerenciar = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tutorialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panelMain.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -48,7 +53,8 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.critérioToolStripMenuItem,
-            this.aToolStripMenuItem});
+            this.aToolStripMenuItem,
+            this.tutorialToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(1264, 24);
@@ -76,13 +82,13 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(15, 15);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(670, 570);
+            this.grid.Size = new System.Drawing.Size(670, 552);
             this.grid.TabIndex = 2;
             this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(103, 597);
+            this.btnAdicionar.Location = new System.Drawing.Point(11, 14);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 3;
@@ -92,7 +98,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(208, 597);
+            this.btnExcluir.Location = new System.Drawing.Point(92, 14);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 4;
@@ -102,7 +108,7 @@
             // 
             // btnRelatorio
             // 
-            this.btnRelatorio.Location = new System.Drawing.Point(523, 597);
+            this.btnRelatorio.Location = new System.Drawing.Point(166, 14);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(75, 23);
             this.btnRelatorio.TabIndex = 5;
@@ -112,7 +118,7 @@
             // 
             // btnRelacionar
             // 
-            this.btnRelacionar.Location = new System.Drawing.Point(313, 597);
+            this.btnRelacionar.Location = new System.Drawing.Point(7, 14);
             this.btnRelacionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRelacionar.Name = "btnRelacionar";
             this.btnRelacionar.Size = new System.Drawing.Size(75, 23);
@@ -123,7 +129,7 @@
             // 
             // btnGerenciar
             // 
-            this.btnGerenciar.Location = new System.Drawing.Point(418, 597);
+            this.btnGerenciar.Location = new System.Drawing.Point(86, 14);
             this.btnGerenciar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGerenciar.Name = "btnGerenciar";
             this.btnGerenciar.Size = new System.Drawing.Size(75, 23);
@@ -134,17 +140,44 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.groupBox2);
+            this.panelMain.Controls.Add(this.groupBox1);
             this.panelMain.Controls.Add(this.grid);
-            this.panelMain.Controls.Add(this.btnGerenciar);
-            this.panelMain.Controls.Add(this.btnAdicionar);
-            this.panelMain.Controls.Add(this.btnRelacionar);
-            this.panelMain.Controls.Add(this.btnExcluir);
-            this.panelMain.Controls.Add(this.btnRelatorio);
             this.panelMain.Location = new System.Drawing.Point(270, 26);
             this.panelMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(700, 630);
             this.panelMain.TabIndex = 8;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnExcluir);
+            this.groupBox1.Controls.Add(this.btnAdicionar);
+            this.groupBox1.Location = new System.Drawing.Point(142, 573);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 44);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Portfólio";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnRelacionar);
+            this.groupBox2.Controls.Add(this.btnRelatorio);
+            this.groupBox2.Controls.Add(this.btnGerenciar);
+            this.groupBox2.Location = new System.Drawing.Point(325, 573);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(252, 44);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gerência de Critérios e Atividades do Portfólio";
+            // 
+            // tutorialToolStripMenuItem
+            // 
+            this.tutorialToolStripMenuItem.Name = "tutorialToolStripMenuItem";
+            this.tutorialToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.tutorialToolStripMenuItem.Text = "Tutorial";
+            this.tutorialToolStripMenuItem.Click += new System.EventHandler(this.tutorialToolStripMenuItem_Click);
             // 
             // PortfolioUI
             // 
@@ -161,6 +194,8 @@
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panelMain.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +212,8 @@
         private System.Windows.Forms.Button btnRelacionar;
         private System.Windows.Forms.Button btnGerenciar;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripMenuItem tutorialToolStripMenuItem;
     }
 }

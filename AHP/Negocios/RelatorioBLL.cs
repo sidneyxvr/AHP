@@ -196,8 +196,13 @@ namespace AHP.Negocios
                 }
                 indiceConsistencia = (lambda - listaSomaColunasAtividades[i].Count) / (listaSomaColunasAtividades[i].Count - 1);
                 //aux1 = indiceConsistencia;
-                taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasAtividades[i].Count - 1];
-                if (taxaConsistencia >= 0.1) ConsistenciaAtividades =  new Tuple<bool, string>(false, atividades[i].Descricao);
+                int p = listaSomaColunasAtividades[i].Count - 1;
+                if(p > -1)
+                {
+                    taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[p];
+                    if (taxaConsistencia >= 0.1) ConsistenciaAtividades = new Tuple<bool, string>(false, atividades[i].Descricao);
+                }
+                
             }
         }
 

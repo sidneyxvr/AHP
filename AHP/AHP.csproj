@@ -142,6 +142,12 @@
     <Compile Include="UI\SelecionarCriterioAtividadeUI.Designer.cs">
       <DependentUpon>SelecionarCriterioAtividadeUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TutorialUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TutorialUI.Designer.cs">
+      <DependentUpon>TutorialUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SelecionarCriterioAtividadeUI.resx">
       <DependentUpon>SelecionarCriterioAtividadeUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TutorialUI.resx">
+      <DependentUpon>TutorialUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

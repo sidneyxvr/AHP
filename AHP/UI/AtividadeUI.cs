@@ -33,15 +33,17 @@ namespace AHP.UI
             grid.Columns[0].HeaderText = "ID";
             grid.Columns[0].Width = 200;
             grid.Columns[0].ReadOnly = true;
-            grid.Columns[1].HeaderText = "Descrição";
+            grid.Columns[1].HeaderText = "Atividade";
             grid.Columns[1].Width = 400;
+            grid.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 10);
+            grid.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 10);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < grid.SelectedRows.Count; i++)
             {
-                DialogResult dialogResult = MessageBox.Show("Sure?", "Excluir portfólio", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Certeza?", "Excluir portfólio", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     bll.Excluir(Convert.ToInt32(grid.SelectedRows[i].Cells[0].Value));
