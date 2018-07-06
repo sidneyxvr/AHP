@@ -76,6 +76,10 @@ namespace AHP.UI
                 }
                 else
                 {
+                    if (criterios.Count == 0)
+                    {
+                        return;
+                    }
                     listLabelHorizontal.Last().Text = atividades.ElementAt(i).Descricao;
                 }
                 listLabelHorizontal.Last().Location = new Point(i * 60, 10);
@@ -108,6 +112,10 @@ namespace AHP.UI
                 }
                 else
                 {
+                    if (criterios.Count == 0)
+                    {
+                        return;
+                    }
                     listLabelVertical.Last().Text = atividades.ElementAt(i).Descricao;
                 }
                 listLabelVertical.Last().Location = new Point(10, i * 40);
@@ -133,6 +141,10 @@ namespace AHP.UI
                     }
                     else
                     {
+                        if(criterios.Count == 0)
+                        {
+                            return;
+                        }
                         listTextBox[i][j].LostFocus += new EventHandler(eventAtividade);
                     }
                     panel.Controls.Add(listTextBox[i][j]);

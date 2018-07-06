@@ -91,7 +91,7 @@
             this.chart2.Text = "Atividades";
             title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title2.Name = "Title1";
-            title2.Text = "Grau de Importância das Critérios";
+            title2.Text = "Grau de Importância dos Critérios";
             this.chart2.Titles.Add(title2);
             // 
             // RelatorioUI
