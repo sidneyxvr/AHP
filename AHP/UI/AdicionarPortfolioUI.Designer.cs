@@ -31,6 +31,7 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,13 +54,23 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.label1);
             this.panelMain.Controls.Add(this.btnAdicionar);
             this.panelMain.Controls.Add(this.txtDescricao);
             this.panelMain.Location = new System.Drawing.Point(19, 21);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(250, 100);
             this.panelMain.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nome do Portfólio";
             // 
             // AdicionarPortfolioUI
             // 
@@ -84,5 +95,6 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -82,3 +82,4 @@ C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.RelatorioUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.UI.RelatorioUI.resources
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csprojAssemblyReference.cache
 C:\Users\Matheus\AHP\AHP\obj\Debug\AHP.csproj.CopyComplete
+C:\Users\Sidney\Desktop\Workspace\AHP\AHP\obj\Debug\AHP.UI.TutorialUI.resources

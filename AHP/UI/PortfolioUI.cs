@@ -51,17 +51,20 @@ namespace AHP.UI
             grid.Columns[0].HeaderText = "ID";
             grid.Columns[0].Width = 150;
             grid.Columns[0].ReadOnly = true;
-            grid.Columns[1].HeaderText = "Descrição";
+            grid.Columns[1].HeaderText = "Portfólio";
             grid.Columns[1].Width = 300;
             grid.Columns[2].HeaderText = "Data de Criação";
             grid.Columns[2].Width = 150;
             grid.Columns[2].ReadOnly = true;
+            grid.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 10);
+            grid.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 10);
+            grid.Columns[2].HeaderCell.Style.Font = new Font("Tahoma", 10);
         }
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AtividadeUI formAtividade = new AtividadeUI();
-            formAtividade.Show();
+            formAtividade.ShowDialog();
         }
 
         private void grid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -76,7 +79,7 @@ namespace AHP.UI
         private void critérioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CriterioUI formCriterio = new CriterioUI();
-            formCriterio.Show();
+            formCriterio.ShowDialog();
         }
 
         private void btnRelacionar_Click(object sender, EventArgs e)
@@ -86,7 +89,7 @@ namespace AHP.UI
                 return;
             }
             SelecionarCriterioAtividadeUI formRelacionarCriterio = new SelecionarCriterioAtividadeUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
-            formRelacionarCriterio.Show();
+            formRelacionarCriterio.ShowDialog();
         }
 
         private void btnGerenciar_Click(object sender, EventArgs e)
@@ -96,7 +99,7 @@ namespace AHP.UI
                 return;
             }
             RelacionarCriterioAtividadeUI formGerenciarCriterio = new RelacionarCriterioAtividadeUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
-            formGerenciarCriterio.Show();
+            formGerenciarCriterio.ShowDialog();
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
@@ -106,7 +109,7 @@ namespace AHP.UI
                 return;
             }
             RelatorioUI formRelatorio = new RelatorioUI(Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value));
-            formRelatorio.Show();
+            formRelatorio.ShowDialog();
         }
 
         private void PortfolioUI_SizeChanged(object sender, EventArgs e)
@@ -118,6 +121,12 @@ namespace AHP.UI
         {
             this.panelMain.Location = new Point((this.Width / 2) - (panelMain.Width / 2),
                                                 (this.Height / 2) - (panelMain.Height / 2));
+        }
+
+        private void tutorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TutorialUI tForm = new TutorialUI();
+            tForm.ShowDialog();
         }
     }
 }
