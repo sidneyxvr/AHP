@@ -32,7 +32,7 @@ namespace AHP.UI
         {
             for (int i = 0; i < grid.SelectedRows.Count; i++)
             {
-                DialogResult dialogResult = MessageBox.Show("Sure?", "Excluir portfólio", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Certeza?", "Excluir portfólio", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     bll.Excluir(Convert.ToInt32(grid.SelectedRows[i].Cells[0].Value));
