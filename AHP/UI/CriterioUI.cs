@@ -51,8 +51,10 @@ namespace AHP.UI
         {
             grid.DataSource = bll.Listar();
             grid.Columns[0].HeaderText = "ID";
+            grid.Columns[0].Width = 200;
             grid.Columns[0].ReadOnly = true;
             grid.Columns[1].HeaderText = "Descrição";
+            grid.Columns[1].Width = 400;
         }
 
         private void grid_CellEndEdit(object sender, DataGridViewCellEventArgs e)

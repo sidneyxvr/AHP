@@ -10,14 +10,16 @@ namespace AHP.Negocios
 {
     class RelatorioBLL
     {
+        public bool ConsistenciaCriterios { get; set; }
+        public Tuple<bool, string> ConsistenciaAtividades { get; set; }
         public double[,] MatrizCriterios { get; set; }
         public double[,,] MatrizAtividades { get; set; }
         private double[] indiceConsistenciaAleatoria = { 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49 };
         private List<double> listaSomaColunasCriterios;
         private List<List<double>> listaSomaColunasAtividades;
-        private List<double> vetEigenCriterios;
+        public List<Tuple<string, double>> VetEigenCriterios;
         private double[,] vetEigenAtividades;
-        public List<Tuple<string, double>> ListaRelatorio { get; set; }
+        public List<Tuple<string, double>> ListaRelatorioAtividade { get; set; }
         private List<Criterio> criterios;
         private List<Atividade> atividades;
         private PortfolioCriterioDAO pcDao;
@@ -35,12 +37,14 @@ namespace AHP.Negocios
             paDao = new PortfolioAtividadeDAO();
             rcDao = new RelacaoCriterioDAO();
             raDao = new RelacaoAtividadeDAO();
-            vetEigenCriterios = new List<double>();
+            VetEigenCriterios = new List<Tuple<string, double>>();
             listaSomaColunasCriterios = new List<double>();
             listaSomaColunasAtividades = new List<List<double>>();
+            ConsistenciaCriterios = true;
+            ConsistenciaAtividades = new Tuple<bool, string>(true, String.Empty);
             criterios = pcDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
             atividades = paDao.ListarPorPortfolio(portfolioId).OrderBy(i => i.Descricao).ToList();
-            ListaRelatorio = new List<Tuple<string, double>>();
+            ListaRelatorioAtividade = new List<Tuple<string, double>>();
             preencherMatrizCriterios();
             preencherVetEngelsCriterios();
             preencherMatrizAtividades();
@@ -88,22 +92,21 @@ namespace AHP.Negocios
                     soma += MatrizCriterios[i, j];
                     //  aux = MatrizCriterios[i, j];
                 }
-                vetEigenCriterios.Add(soma / criterios.Count);
+                VetEigenCriterios.Add(new Tuple<string, double> (criterios[i].Descricao, soma / criterios.Count));
                 //aux = soma / criterios.Count;
             }
-            bool consistecia;
             if (listaSomaColunasCriterios.Count < 10 && listaSomaColunasCriterios.Count > 0)
             {
-                consistecia = calcularConsistenciaCriterios();
+               calcularConsistenciaCriterios();
             }
         }
 
-        public bool calcularConsistenciaCriterios()
+        private void calcularConsistenciaCriterios()
         {
             double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
             for (int i = 0; i < listaSomaColunasCriterios.Count; i++)
             {
-                lambda += vetEigenCriterios[i] * listaSomaColunasCriterios[i];
+                lambda += VetEigenCriterios[i].Item2 * listaSomaColunasCriterios[i];
                 //aux1 = vetEigenCriterios[i];
                 //aux2 = listaSomaColunasCriterios[i];
             }
@@ -111,7 +114,7 @@ namespace AHP.Negocios
             //aux1 = indiceConsistencia;
             aux1 = listaSomaColunasCriterios.Count;
             taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasCriterios.Count - 1];
-            return taxaConsistencia < 0.1 ? true : false;
+            ConsistenciaCriterios = (taxaConsistencia < 0.1 ? true : false);
         }
 
         public void preencherMatrizAtividades()
@@ -172,14 +175,14 @@ namespace AHP.Negocios
                     // listaAtividades.Add(soma / atividades.Count);
                 }
             }
-            bool consistecia;
+            Tuple<bool, int> consistencia = new Tuple<bool, int>(true, 0);
             if (listaSomaColunasAtividades.Count < 10 && listaSomaColunasAtividades.Count > 0)
             {
-                consistecia = calcularConsistenciaAtividades();
+                calcularConsistenciaAtividades();
             }
         }
 
-        public bool calcularConsistenciaAtividades()
+        public void calcularConsistenciaAtividades()
         {
             double lambda = 0, indiceConsistencia = 0, taxaConsistencia = 0, aux1 = 0, aux2 = 0;
             for (int i = 0; i < listaSomaColunasAtividades.Count; i++)
@@ -194,30 +197,31 @@ namespace AHP.Negocios
                 indiceConsistencia = (lambda - listaSomaColunasAtividades[i].Count) / (listaSomaColunasAtividades[i].Count - 1);
                 //aux1 = indiceConsistencia;
                 taxaConsistencia = indiceConsistencia / indiceConsistenciaAleatoria[listaSomaColunasAtividades[i].Count - 1];
-                if (taxaConsistencia >= 0.1) return false;
+                if (taxaConsistencia >= 0.1) ConsistenciaAtividades =  new Tuple<bool, string>(false, atividades[i].Descricao);
             }
-            return true;
         }
 
         public void gerarRelatorio()
         {
-            //double[] pesoCriterio = { 0.0122, 0.0219, 0.0056, 0.0510, 0.0048, 0.0514, 0.0357, 0.1785, 0.1785, 0.2988, 0.0331, 0.1284 };
+            //double[] pesoCriterio = { 0.0122, 0.0048, 0.0514, 0.0357, 0.1785, 0.1785, 0.2988, 0.0331, 0.1284, 0.0219, 0.0056, 0.0510 };
+            //double aux = 0;
             for (int i = 0; i < atividades.Count; i++)
             {
                 double produto = 0, aux1 = 0, aux2 = 0;
                 for (int j = 0; j < criterios.Count; j++)
                 {
                     //aux1 = vetEigenAtividades[j, i];
-                    //aux2 = vetEigenCriterios[j];
+                    //aux2 = pesoCriterio[j];
                     //pesoCriterio[j];
-                    produto += vetEigenAtividades[j, i] * vetEigenCriterios[j];
+                    produto += vetEigenAtividades[j, i] * VetEigenCriterios[j].Item2;
                     //pesoCriterio[j];
-                    //aux1 = vetEigenAtividades[j, i] * vetEigenCriterios[j];
+                    //aux1 = vetEigenAtividades[j, i] * pesoCriterio[j];
                     //pesoCriterio[j];
                 }
-                //aux1 = produto;
-                ListaRelatorio.Add(new Tuple<string, double>(atividades[i].Descricao, produto));
+                //aux += produto;
+                ListaRelatorioAtividade.Add(new Tuple<string, double>(atividades[i].Descricao, produto));
             }
+            //aux += 0;
         }
 
     }

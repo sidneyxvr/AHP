@@ -49,9 +49,12 @@ namespace AHP.UI
         {
             grid.DataSource = bll.Listar();
             grid.Columns[0].HeaderText = "ID";
+            grid.Columns[0].Width = 150;
             grid.Columns[0].ReadOnly = true;
             grid.Columns[1].HeaderText = "Descrição";
+            grid.Columns[1].Width = 300;
             grid.Columns[2].HeaderText = "Data de Criação";
+            grid.Columns[2].Width = 150;
             grid.Columns[2].ReadOnly = true;
         }
 

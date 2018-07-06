@@ -12,64 +12,93 @@ namespace AHP.Dados
     {
         public void Adicionar(Portfolio portfolio)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "insert into portfolio values (default, @descricao, now())";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("descricao", portfolio.Descricao);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "insert into portfolio values (default, @descricao, now())";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("descricao", portfolio.Descricao);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
         
         public void Excluir(int id)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "delete from portfolio where id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", id);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "delete from portfolio where id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("id", id);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
         public List<Portfolio> Listar()
         {
             List<Portfolio> list = new List<Portfolio>();
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "select * from Portfolio";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                db.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                using (var db = BancoDados.getConnection)
                 {
-                    list.Add(new Portfolio()
+                    string query = "select * from Portfolio";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    db.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        ID = Convert.ToInt32(reader["id"].ToString()),
-                        Descricao = reader["descricao"].ToString(),
-                        DataCriacao = Convert.ToDateTime(reader["datacriacao"].ToString())
-                    });
+                        list.Add(new Portfolio()
+                        {
+                            ID = Convert.ToInt32(reader["id"].ToString()),
+                            Descricao = reader["descricao"].ToString(),
+                            DataCriacao = Convert.ToDateTime(reader["datacriacao"].ToString())
+                        });
+                    }
+                    db.Close();
                 }
-                db.Close();
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+
+            }
+            return null;   
         }
 
         public void Alterar(Portfolio portfolio)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "update portfolio set descricao = @descricao where id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", portfolio.ID);
-                cmd.Parameters.AddWithValue("descricao", portfolio.Descricao);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "update portfolio set descricao = @descricao where id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("id", portfolio.ID);
+                    cmd.Parameters.AddWithValue("descricao", portfolio.Descricao);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

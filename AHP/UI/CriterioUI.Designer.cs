@@ -38,7 +38,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(366, 470);
+            this.btnExcluir.Location = new System.Drawing.Point(366, 619);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 10;
@@ -48,7 +48,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(251, 470);
+            this.btnAdicionar.Location = new System.Drawing.Point(251, 619);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 9;
@@ -63,7 +63,7 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(15, 15);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(670, 450);
+            this.grid.Size = new System.Drawing.Size(670, 595);
             this.grid.TabIndex = 8;
             this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
             // 
@@ -72,19 +72,19 @@
             this.panelMain.Controls.Add(this.grid);
             this.panelMain.Controls.Add(this.btnExcluir);
             this.panelMain.Controls.Add(this.btnAdicionar);
-            this.panelMain.Location = new System.Drawing.Point(35, 26);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMain.Location = new System.Drawing.Point(259, 11);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(700, 500);
+            this.panelMain.Size = new System.Drawing.Size(700, 650);
             this.panelMain.TabIndex = 11;
             // 
             // CriterioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panelMain);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CriterioUI";
             this.Text = "Critério";
             this.Load += new System.EventHandler(this.CriterioUI_Load);

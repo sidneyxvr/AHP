@@ -12,63 +12,92 @@ namespace AHP.Dados
     {
         public void Adicionar(Atividade atividade)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "insert into atividade values (default, @descricao)";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("descricao", atividade.Descricao);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "insert into atividade values (default, @descricao)";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("descricao", atividade.Descricao);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
         public void Excluir(int id)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "delete from atividade where id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", id);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "delete from atividade where id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("id", id);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
         public List<Atividade> Listar()
         {
             List<Atividade> list = new List<Atividade>();
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "select * from Atividade";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                db.Open();
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (var db = BancoDados.getConnection)
                 {
-                    list.Add(new Atividade()
+                    string query = "select * from Atividade";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    db.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        ID = Convert.ToInt32(reader["id"].ToString()),
-                        Descricao = reader["descricao"].ToString()
-                    });
+                        list.Add(new Atividade()
+                        {
+                            ID = Convert.ToInt32(reader["id"].ToString()),
+                            Descricao = reader["descricao"].ToString()
+                        });
+                    }
+                    db.Close();
                 }
-                db.Close();
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+
+            }
+            return null;
         }
 
         public void Alterar(Atividade atividade)
         {
-            using (var db = BancoDados.getConnection)
+            try
             {
-                string query = "update atividade set descricao = @descricao where id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, db);
-                cmd.Parameters.AddWithValue("id", atividade.ID);
-                cmd.Parameters.AddWithValue("descricao", atividade.Descricao);
-                db.Open();
-                cmd.ExecuteNonQuery();
-                db.Close();
+                using (var db = BancoDados.getConnection)
+                {
+                    string query = "update atividade set descricao = @descricao where id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, db);
+                    cmd.Parameters.AddWithValue("id", atividade.ID);
+                    cmd.Parameters.AddWithValue("descricao", atividade.Descricao);
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                    db.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
         }
     }
