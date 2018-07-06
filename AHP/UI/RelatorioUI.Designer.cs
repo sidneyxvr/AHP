@@ -28,122 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelAtividade = new System.Windows.Forms.Panel();
-            this.panelNota = new System.Windows.Forms.Panel();
-            this.lblAtividade = new System.Windows.Forms.Label();
-            this.lblGrau = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCriterio = new System.Windows.Forms.Label();
-            this.panelGrau = new System.Windows.Forms.Panel();
-            this.panelCriterio = new System.Windows.Forms.Panel();
-            this.panelPrincipal.SuspendLayout();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelPrincipal
+            // chart1
             // 
-            this.panelPrincipal.Controls.Add(this.label1);
-            this.panelPrincipal.Controls.Add(this.lblCriterio);
-            this.panelPrincipal.Controls.Add(this.panelGrau);
-            this.panelPrincipal.Controls.Add(this.panelCriterio);
-            this.panelPrincipal.Controls.Add(this.lblGrau);
-            this.panelPrincipal.Controls.Add(this.lblAtividade);
-            this.panelPrincipal.Controls.Add(this.panelNota);
-            this.panelPrincipal.Controls.Add(this.panelAtividade);
-            this.panelPrincipal.Location = new System.Drawing.Point(84, 12);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(600, 500);
-            this.panelPrincipal.TabIndex = 0;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.BottomLeft;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(12, 30);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(620, 639);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "Atividades";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Grau de Importância das Atividades";
+            this.chart1.Titles.Add(title1);
             // 
-            // panelAtividade
+            // chart2
             // 
-            this.panelAtividade.Location = new System.Drawing.Point(17, 53);
-            this.panelAtividade.Name = "panelAtividade";
-            this.panelAtividade.Size = new System.Drawing.Size(150, 429);
-            this.panelAtividade.TabIndex = 0;
-            // 
-            // panelNota
-            // 
-            this.panelNota.Location = new System.Drawing.Point(174, 53);
-            this.panelNota.Name = "panelNota";
-            this.panelNota.Size = new System.Drawing.Size(100, 429);
-            this.panelNota.TabIndex = 1;
-            // 
-            // lblAtividade
-            // 
-            this.lblAtividade.AutoSize = true;
-            this.lblAtividade.Location = new System.Drawing.Point(14, 25);
-            this.lblAtividade.Name = "lblAtividade";
-            this.lblAtividade.Size = new System.Drawing.Size(56, 13);
-            this.lblAtividade.TabIndex = 2;
-            this.lblAtividade.Text = "Atividades";
-            // 
-            // lblGrau
-            // 
-            this.lblGrau.AutoSize = true;
-            this.lblGrau.Location = new System.Drawing.Point(171, 25);
-            this.lblGrau.Name = "lblGrau";
-            this.lblGrau.Size = new System.Drawing.Size(103, 13);
-            this.lblGrau.TabIndex = 3;
-            this.lblGrau.Text = "Grau de Importância";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(479, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Grau de Importância";
-            // 
-            // lblCriterio
-            // 
-            this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Location = new System.Drawing.Point(322, 25);
-            this.lblCriterio.Name = "lblCriterio";
-            this.lblCriterio.Size = new System.Drawing.Size(39, 13);
-            this.lblCriterio.TabIndex = 6;
-            this.lblCriterio.Text = "Critério";
-            // 
-            // panelGrau
-            // 
-            this.panelGrau.Location = new System.Drawing.Point(482, 53);
-            this.panelGrau.Name = "panelGrau";
-            this.panelGrau.Size = new System.Drawing.Size(100, 429);
-            this.panelGrau.TabIndex = 5;
-            // 
-            // panelCriterio
-            // 
-            this.panelCriterio.Location = new System.Drawing.Point(325, 53);
-            this.panelCriterio.Name = "panelCriterio";
-            this.panelCriterio.Size = new System.Drawing.Size(150, 429);
-            this.panelCriterio.TabIndex = 4;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.BottomLeft;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(628, 30);
+            this.chart2.Name = "chart2";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
+            this.chart2.Size = new System.Drawing.Size(624, 639);
+            this.chart2.TabIndex = 2;
+            this.chart2.Text = "Atividades";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Title1";
+            title2.Text = "Grau de Importância das Critérios";
+            this.chart2.Titles.Add(title2);
             // 
             // RelatorioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.panelPrincipal);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chart1);
             this.Name = "RelatorioUI";
             this.Text = "Relatório";
             this.Load += new System.EventHandler(this.RelatorioUI_Load);
-            this.panelPrincipal.ResumeLayout(false);
-            this.panelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.Panel panelNota;
-        private System.Windows.Forms.Panel panelAtividade;
-        private System.Windows.Forms.Label lblGrau;
-        private System.Windows.Forms.Label lblAtividade;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblCriterio;
-        private System.Windows.Forms.Panel panelGrau;
-        private System.Windows.Forms.Panel panelCriterio;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }

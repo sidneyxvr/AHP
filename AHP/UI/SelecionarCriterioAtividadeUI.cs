@@ -139,7 +139,11 @@ namespace AHP.UI
 
         private void atividadeSelecionado(Object sender, EventArgs e)
         {
-            CheckBox ck = (CheckBox)sender;
+            threadFunction((CheckBox)sender);
+        }
+
+        private void threadFunction(CheckBox ck)
+        {
             List<Criterio> listC = portfolioCriterioBLL.ListarPorPortfolio(portfolioId);
             List<Atividade> listA;
             PortfolioAtividade pa = new PortfolioAtividade()
@@ -159,7 +163,7 @@ namespace AHP.UI
                 listA = portfolioAtividadeBLL.ListarPorPortfolio(portfolioId);
                 foreach (Criterio c in listC)
                 {
-                    foreach(Atividade a in listA)
+                    foreach (Atividade a in listA)
                     {
                         portfolioAtividadeBLL.AdicionarRelacaoAtividadePortfolio(new RelacaoAtividade()
                         {
@@ -175,7 +179,7 @@ namespace AHP.UI
                             {
                                 ID = c.ID
                             },
-                            Nota = pa.Atividade.ID == a.ID ? 1.0: 0.0,
+                            Nota = pa.Atividade.ID == a.ID ? 1.0 : 0.0,
                             Portfolio = new Portfolio()
                             {
                                 ID = pa.Portfolio.ID

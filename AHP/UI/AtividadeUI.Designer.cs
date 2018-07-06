@@ -38,7 +38,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(366, 470);
+            this.btnExcluir.Location = new System.Drawing.Point(366, 616);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 7;
@@ -48,7 +48,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(251, 470);
+            this.btnAdicionar.Location = new System.Drawing.Point(251, 616);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 6;
@@ -63,7 +63,7 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(15, 15);
             this.grid.Name = "grid";
-            this.grid.Size = new System.Drawing.Size(670, 450);
+            this.grid.Size = new System.Drawing.Size(670, 595);
             this.grid.TabIndex = 5;
             this.grid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellEndEdit);
             // 
@@ -72,17 +72,17 @@
             this.panelMain.Controls.Add(this.grid);
             this.panelMain.Controls.Add(this.btnExcluir);
             this.panelMain.Controls.Add(this.btnAdicionar);
-            this.panelMain.Location = new System.Drawing.Point(50, 10);
+            this.panelMain.Location = new System.Drawing.Point(243, 10);
             this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(700, 500);
+            this.panelMain.Size = new System.Drawing.Size(700, 650);
             this.panelMain.TabIndex = 8;
             // 
             // AtividadeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.panelMain);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AtividadeUI";

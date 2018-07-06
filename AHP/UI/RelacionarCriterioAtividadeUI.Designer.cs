@@ -48,10 +48,10 @@
             // 
             this.tabRelacaoCriterioAtividade.Controls.Add(this.tabPage1);
             this.tabRelacaoCriterioAtividade.Controls.Add(this.tabPage2);
-            this.tabRelacaoCriterioAtividade.Location = new System.Drawing.Point(44, 12);
+            this.tabRelacaoCriterioAtividade.Location = new System.Drawing.Point(69, 12);
             this.tabRelacaoCriterioAtividade.Name = "tabRelacaoCriterioAtividade";
             this.tabRelacaoCriterioAtividade.SelectedIndex = 0;
-            this.tabRelacaoCriterioAtividade.Size = new System.Drawing.Size(700, 500);
+            this.tabRelacaoCriterioAtividade.Size = new System.Drawing.Size(1100, 635);
             this.tabRelacaoCriterioAtividade.TabIndex = 0;
             // 
             // tabPage1
@@ -62,7 +62,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(692, 474);
+            this.tabPage1.Size = new System.Drawing.Size(1092, 609);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Critérios";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             this.panelCriterioPrincipal.AutoScroll = true;
             this.panelCriterioPrincipal.Location = new System.Drawing.Point(135, 85);
             this.panelCriterioPrincipal.Name = "panelCriterioPrincipal";
-            this.panelCriterioPrincipal.Size = new System.Drawing.Size(512, 383);
+            this.panelCriterioPrincipal.Size = new System.Drawing.Size(920, 518);
             this.panelCriterioPrincipal.TabIndex = 2;
             // 
             // panelCriterioVertical
@@ -80,7 +80,7 @@
             this.panelCriterioVertical.AutoScroll = true;
             this.panelCriterioVertical.Location = new System.Drawing.Point(6, 85);
             this.panelCriterioVertical.Name = "panelCriterioVertical";
-            this.panelCriterioVertical.Size = new System.Drawing.Size(123, 383);
+            this.panelCriterioVertical.Size = new System.Drawing.Size(123, 518);
             this.panelCriterioVertical.TabIndex = 1;
             // 
             // panelCriterioHorizontal
@@ -88,7 +88,7 @@
             this.panelCriterioHorizontal.AutoScroll = true;
             this.panelCriterioHorizontal.Location = new System.Drawing.Point(135, 6);
             this.panelCriterioHorizontal.Name = "panelCriterioHorizontal";
-            this.panelCriterioHorizontal.Size = new System.Drawing.Size(512, 73);
+            this.panelCriterioHorizontal.Size = new System.Drawing.Size(920, 73);
             this.panelCriterioHorizontal.TabIndex = 0;
             // 
             // tabPage2
@@ -100,7 +100,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(692, 474);
+            this.tabPage2.Size = new System.Drawing.Size(1092, 609);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Atividades";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             this.panelAtividadePrincipal.AutoScroll = true;
             this.panelAtividadePrincipal.Location = new System.Drawing.Point(135, 112);
             this.panelAtividadePrincipal.Name = "panelAtividadePrincipal";
-            this.panelAtividadePrincipal.Size = new System.Drawing.Size(512, 356);
+            this.panelAtividadePrincipal.Size = new System.Drawing.Size(920, 491);
             this.panelAtividadePrincipal.TabIndex = 5;
             // 
             // panelAtividadeVertical
@@ -127,7 +127,7 @@
             this.panelAtividadeVertical.AutoScroll = true;
             this.panelAtividadeVertical.Location = new System.Drawing.Point(6, 112);
             this.panelAtividadeVertical.Name = "panelAtividadeVertical";
-            this.panelAtividadeVertical.Size = new System.Drawing.Size(123, 356);
+            this.panelAtividadeVertical.Size = new System.Drawing.Size(123, 491);
             this.panelAtividadeVertical.TabIndex = 4;
             // 
             // panelAtividadeHorizontal
@@ -135,13 +135,13 @@
             this.panelAtividadeHorizontal.AutoScroll = true;
             this.panelAtividadeHorizontal.Location = new System.Drawing.Point(135, 33);
             this.panelAtividadeHorizontal.Name = "panelAtividadeHorizontal";
-            this.panelAtividadeHorizontal.Size = new System.Drawing.Size(512, 73);
+            this.panelAtividadeHorizontal.Size = new System.Drawing.Size(920, 73);
             this.panelAtividadeHorizontal.TabIndex = 3;
             // 
             // labelResult
             // 
             this.labelResult.AutoSize = true;
-            this.labelResult.Location = new System.Drawing.Point(45, 515);
+            this.labelResult.Location = new System.Drawing.Point(237, 650);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(59, 13);
             this.labelResult.TabIndex = 1;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.tabRelacaoCriterioAtividade);
             this.Name = "RelacionarCriterioAtividadeUI";

@@ -42,11 +42,11 @@
             // 
             this.tabCriterio.Controls.Add(this.tabPage1);
             this.tabCriterio.Controls.Add(this.tabPage2);
-            this.tabCriterio.Location = new System.Drawing.Point(43, 11);
+            this.tabCriterio.Location = new System.Drawing.Point(210, 11);
             this.tabCriterio.Margin = new System.Windows.Forms.Padding(2);
             this.tabCriterio.Name = "tabCriterio";
             this.tabCriterio.SelectedIndex = 0;
-            this.tabCriterio.Size = new System.Drawing.Size(700, 500);
+            this.tabCriterio.Size = new System.Drawing.Size(700, 650);
             this.tabCriterio.TabIndex = 0;
             // 
             // tabPage1
@@ -57,7 +57,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(692, 474);
+            this.tabPage1.Size = new System.Drawing.Size(692, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Critérios";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -69,7 +69,7 @@
             this.groupBoxCriterio.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxCriterio.Name = "groupBoxCriterio";
             this.groupBoxCriterio.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxCriterio.Size = new System.Drawing.Size(635, 465);
+            this.groupBoxCriterio.Size = new System.Drawing.Size(635, 616);
             this.groupBoxCriterio.TabIndex = 0;
             this.groupBoxCriterio.TabStop = false;
             // 
@@ -81,7 +81,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(692, 474);
+            this.tabPage2.Size = new System.Drawing.Size(692, 624);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Atividades";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             this.groupBoxAtividade.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxAtividade.Name = "groupBoxAtividade";
             this.groupBoxAtividade.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxAtividade.Size = new System.Drawing.Size(635, 465);
+            this.groupBoxAtividade.Size = new System.Drawing.Size(635, 616);
             this.groupBoxAtividade.TabIndex = 0;
             this.groupBoxAtividade.TabStop = false;
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.tabCriterio);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SelecionarCriterioAtividadeUI";
